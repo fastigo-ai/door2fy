@@ -1,0 +1,11 @@
+.location{
+    height: 200px;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.8) 0%, /* Top shadow with 30% opacity */
+        rgba(0, 0, 0, 0) 100% /* Fully transparent at the bottom */
+    );
+    inset: 0;
+    z-index: 1; /* Ensures it appears above the background */
+    /* pointer-events: none; Allows interaction with underlying elements if needed */
+}
