@@ -21,9 +21,9 @@ const Search = () => {
   };
 
   return (
-    <div className="relative bottom-6 px-2">
+    <div className="relative bottom-6 md:bottom-24 md:flex md:justify-center px-2">
   {/* Search Bar */}
-  <div className="flex items-center bg-white rounded-full shadow-lg p-3">
+  <div className="flex items-center md:w-1/3 bg-white rounded-full shadow-lg p-3">
     <input
       className="flex-1 border-none outline-none font-sora text-base py-1 px-3"
       type="text"
@@ -38,8 +38,8 @@ const Search = () => {
 
   {/* Results Modal */}
   {showResults && (
-    <div className="flex justify-center">
-       <div className="absolute px-2 w-4/5 top-full bg-white rounded-lg shadow-xl shadow-slate-400 mt-2 z-10">
+    
+       <div className="absolute px-2 w-5/6 md:w-1/3 mx-6 md:mx-0 top-full bg-white rounded-lg shadow-xl shadow-slate-400 mt-1 z-10">
       {results.length > 0 ? (
         results.map((result, index) => (
           <div
@@ -56,7 +56,7 @@ const Search = () => {
         </div>
       )}
     </div>
-    </div>
+    
    
   )}
 </div>

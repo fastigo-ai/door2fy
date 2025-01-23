@@ -8,13 +8,28 @@ const SmoothScrollSlider = () => {
   }));
 
   return (
-    <div className="w-full my-12  ">
-      <div className="text-left text-3xl font-semibold font-sora mb-8 text-cyan-700 ml-4">
+    <div className="w-full my-12">
+      <div className="text-left md:text-center text-3xl md:text-4xl font-semibold font-sora mb-8 text-cyan-700 ml-4 md:ml-0 md:my-16">
         Service Options
       </div>
-      {/* Scrollable Container */}
+
+      {/* Desktop Grid View */}
+      <div className="hidden md:grid grid-cols-6 gap-8 px-4 md:px-[10%] mb-20">
+        {options.map((option) => (
+          <div key={option.id} className="flex flex-col items-center ">
+            <img
+              src={option.image}
+              alt={option.label}
+              className="w-full h-full object-cover rounded-lg shadow-md bg-sky-200"
+            />
+            <p className="mt-2 text-sm font-medium text-gray-700">{option.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Scrollable View for Mobile */}
       <div
-        className="flex ml-4 overflow-x-auto snap-x snap-mandatory space-x-4 scrollbar-hide"
+        className="flex ml-4 overflow-x-auto snap-x snap-mandatory space-x-4 scrollbar-hide md:hidden"
         style={{ scrollBehavior: 'smooth' }}
       >
         {/* Two Rows */}
@@ -29,9 +44,6 @@ const SmoothScrollSlider = () => {
                 alt={option.label}
                 className="w-full h-full object-cover rounded-md"
               />
-              {/* <p className="mt-2 text-sm font-medium text-gray-700">
-                {option.label}
-              </p> */}
             </div>
           ))}
         </div>

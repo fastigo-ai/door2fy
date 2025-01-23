@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import Slider from 'react-slick';
-import { FaCircle } from 'react-icons/fa';
+import React, { useState } from "react";
+import Slider from "react-slick";
 
 const ImageSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
-    '/assets/images/Offers/Main-offer.jpg',
-    '/assets/images/Offers/Main-offer.jpg',
-    '/assets/images/Offers/Main-offer.jpg',
-    '/assets/images/Offers/Main-offer.jpg',
-    '/assets/images/Offers/Main-offer.jpg',
+    "/assets/images/Offers/Main-offer.jpg",
+    "/assets/images/Offers/Main-offer.jpg",
+    "/assets/images/Offers/Main-offer.jpg",
+    "/assets/images/Offers/Main-offer.jpg",
+    "/assets/images/Offers/Main-offer.jpg",
   ];
 
   const handleSliderChange = (index) => {
@@ -19,30 +18,48 @@ const ImageSlider = () => {
 
   const settings = {
     infinite: true,
-    speed: 500,
-    slidesToShow: 1,
+    speed: 1000,
+    slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
     afterChange: handleSliderChange,
+    responsive: [
+      {
+        breakpoint: 768, // Tablet and below
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 1024, // Desktop and above
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="relative py-2 pb-12 bg-cyan-700">
-
+    <div className="relative py-2 pb-10 md:pb-20 bg-cyan-700 w-full">
       {/* Offer Slider Title */}
-      <div className="text-left text-2xl font-semibold font-sora mx-4 mt-4 text-white">
+      <div className="text-left md:text-center text-2xl md:text-4xl font-semibold font-sora mx-4 mt-4 md:mt-10 text-white">
         Exciting Offers
       </div>
-      <div className="text-left text-md font-sora text-white ml-4 mb-4">
+      <div className="text-left md:text-center text-md md:text-xl font-sora text-white ml-4 md:ml-0 md:mt-4 mb-4 md:mb-10">
         Find out the best offers for you
       </div>
+
       {/* Image Slider */}
-      <div className="overflow-hidden">
-        <Slider {...settings} className="w-full">
+      <div className="overflow-hidden flex justify-center">
+        <Slider {...settings} className="w-full md:w-[90%]">
           {images.map((image, index) => (
             <div key={index}>
               <div className="mx-2">
                 <img
-                  src={image || '/images/placeholder.jpg'}
+                  src={image || "/images/placeholder.jpg"}
                   alt={`Slide ${index}`}
                   className="w-full h-auto rounded-md"
                 />
@@ -52,21 +69,9 @@ const ImageSlider = () => {
         </Slider>
       </div>
 
-      {/* Slider Position Indicator */}
-      {/* <div className="absolute bottom-0 left-0 right-0 flex justify-center space-x-2 py-2">
-        {images.map((_, index) => (
-          <FaCircle
-            key={index}
-            className={`text-xl cursor-pointer ${index === currentSlide ? 'text-cyan-500' : 'text-gray-500'}`}
-            onClick={() => handleSliderChange(index)}
-          />
-        ))}
-      </div> */}
-
-      
-       {/* Slider Progress Bar */}
-       <div className="absolute left-0 right-0 flex justify-center py-4 ">
-        <div className="w-2/3 bg-gray-300 h-[6px] rounded-md relative">
+      {/* Slider Progress Bar */}
+      <div className="absolute left-0 right-0 flex justify-center py-4 ">
+        <div className="w-2/3 md:w-1/3 bg-gray-300 h-[6px] rounded-md relative">
           <div
             className="bg-cyan-500 h-[6px] rounded-md"
             style={{ width: `${(currentSlide / (images.length - 1)) * 100}%` }}

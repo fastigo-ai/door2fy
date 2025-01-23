@@ -1,4 +1,5 @@
-.location{
+@media (max-width: 768px ){
+    .location{
     height: 200px;
     background: linear-gradient(
         to bottom, 
@@ -8,4 +9,8 @@
     inset: 0;
     z-index: 1; /* Ensures it appears above the background */
     /* pointer-events: none; Allows interaction with underlying elements if needed */
+}
+}
+.location{
+    /* z-index: 1; */
 }

@@ -23,12 +23,12 @@ const CategoriesModal = ({ onClose }) => {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-10"
+        className="fixed inset-0 bg-black bg-opacity-50  z-10"
         onClick={onClose}
       ></div>
 
       {/* Modal */}
-      <div className="fixed bottom-0 left-0 w-full bg-white rounded-lg shadow-lg p-4 z-50 font-sora overflow-y-auto">
+      <div className="fixed bottom-0 md:top-[75px] md:right-1 z-50 w-full h-auto md:h-fit md:w-96 bg-white rounded-lg shadow-lg p-4 font-sora overflow-y-auto">
         {/* Header */}
         <div className="flex justify-between items-center border-b pb-2">
           <h2 className="text-2xl font-semibold text-gray-800">Categories</h2>

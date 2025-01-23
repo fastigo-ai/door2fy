@@ -103,7 +103,7 @@ const AccountModal = ({ onClose }) => {
     <div className="font-sora">
       <div className="fixed inset-0 bg-black bg-opacity-50 z-10" onClick={onClose}></div>
 
-      <div className="fixed bottom-0 z-50 w-full sm:w-96 bg-white rounded-t-lg sm:rounded-lg shadow-lg p-6">
+      <div className="fixed bottom-0 md:top-[75px] md:right-1 z-50 w-full h-auto md:h-fit md:w-96 bg-white rounded-t-lg sm:rounded-lg shadow-lg p-6 ">
         <div className="flex justify-between items-center border-b pb-4 mb-4">
           <h2 className="text-lg font-semibold">Sign in with your phone</h2>
           <button 

@@ -289,7 +289,7 @@ const BookingModal = ({ onClose }) => {
       ></div>
 
       {/* Modal */}
-      <div className="fixed bottom-0 left-0 w-full bg-white rounded-lg shadow-lg p-6 z-50 font-sora overflow-y-auto">
+      <div className="fixed bottom-0 md:top-[75px] md:right-1 w-full h-auto md:h-fit md:w-96 bg-white rounded-lg shadow-lg p-6 z-50 font-sora overflow-y-auto">
         {/* Header */}
         <div className="flex justify-between items-center border-b pb-4">
           <h2 className="text-2xl font-semibold text-gray-800">Book an Appointment</h2>

@@ -5,12 +5,14 @@ import { useNavigate } from "react-router-dom";
 import RemoveItemModal from "./Confirmation/ConfirmationModal";
 import AccountModal from "./AccountModal";
 import { useCart } from "../../contexts/CartContext";
+import Notification from "../Notification/Notification";
 
 const CartModal = ({ items = [], onClose, onRemoveItem }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const { cartItems, removeFromCart } = useCart();
+  const [notification, setNotification] = useState(null);
 
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
@@ -39,6 +41,7 @@ const CartModal = ({ items = [], onClose, onRemoveItem }) => {
     if (selectedItem) {
       removeFromCart(selectedItem.name);
     }
+    setNotification(`${selectedItem.name} removed from your cart.`);
     setIsModalOpen(false);
     setSelectedItem(null);
   };
@@ -51,10 +54,10 @@ const CartModal = ({ items = [], onClose, onRemoveItem }) => {
   return (
     <>
     <div
-    className="fixed inset-0 bg-black bg-opacity-50 z-10"
+    className="fixed inset-0 bg-black bg-opacity-50   z-10"
     onClick={onClose}
         ></div>
-      <div className="fixed bottom-0 z-50 w-full h-auto sm:w-96 bg-white rounded-lg shadow-lg flex flex-col">
+      <div className="fixed bottom-0 md:top-[75px] md:right-1 z-50 w-full h-auto md:h-fit md:w-96 bg-white rounded-lg shadow-lg flex flex-col ">
         {/* Header */}
         <div className="flex justify-between items-center border-b p-4">
           <h2 className="text-lg font-semibold">Items in your cart</h2>
@@ -113,6 +116,13 @@ const CartModal = ({ items = [], onClose, onRemoveItem }) => {
           </button>
         </div>
       </div>
+      
+      {notification && (
+        <Notification
+          message={notification}
+          onClose={() => setNotification(null)}
+        />
+      )}
 
       {/* Remove Item Modal */}
       {isModalOpen && (

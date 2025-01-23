@@ -3,7 +3,7 @@ import { AiOutlineClose } from "react-icons/ai";
 
 const Notification = ({ message, onClose }) => {
   return (
-    <div className="fixed top-20 right-5 bg-gray-800 text-white p-3 rounded-md flex items-center z-50 text-base max-w-sm justify-between shadow-lg sm:top-5 sm:right-1/2 sm:translate-x-1/2 sm:text-sm sm:max-w-xs sm:p-2">
+    <div className="fixed top-20 max-md:right-1 max-md:w-2/3 bg-gray-800 text-white p-2 md:p-3 rounded-md flex items-center z-50 text-base max-w-sm justify-between shadow-lg sm:right-1/2 sm:translate-x-1/2 sm:text-sm ">
       <span>{message}</span>
       <button
         onClick={onClose}

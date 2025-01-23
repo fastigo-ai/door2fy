@@ -103,8 +103,8 @@ export default function Location() {
   return (
     <div className="z-20">
       {/* Location Display */}
-      <div className="location absolute top-0 w-full p-4 text-white text-left">
-        <div className="text-xl font-semibold">{location}</div>
+      <div className="location absolute top-0 w-full md:w-[10rem] lg:w-[15rem] p-4 md:py-3 md:px-0 text-white md:text-cyan-800 text-left">
+        <div className="text-xl md:text-lg font-semibold">{location}</div>
         <div className="flex items-center" onClick={() => setIsModalOpen(true)}>
           <h3 className="text-xs cursor-pointer" >
             Shivaji Marg, Block A1, Janakpuri, ...
@@ -123,7 +123,7 @@ export default function Location() {
           ></div>
 
           {/* Modal */}
-          <div className="fixed bottom-0 left-0 w-full bg-white rounded-lg h-2/3 shadow-lg p-4 z-50 font-sora">
+          <div className="fixed bottom-0 md:top-[75px] md:left-1 z-50 w-full h-2/3 md:h-2/3 md:w-96 bg-white rounded-lg shadow-lg p-4 font-sora">
             <div className="flex justify-between items-center border-b pb-2">
               <h2 className="text-2xl font-semibold text-gray-800">Select Location</h2>
               <button

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { TbArrowBackUp } from "react-icons/tb";
-import { useCart } from '../../contexts/CartContext';
-
+import { useCart } from "../../contexts/CartContext";
 import Navbar from "../../components/Navigation/Navbar";
 import Footer from "../../components/Footer/Footer";
 import Cart from "../../components/modals/CartModal";
@@ -14,7 +13,7 @@ const ItemPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { cartItems, addToCart, removeFromCart, isServiceAdded } = useCart();
-  
+
   const [serviceData, setServiceData] = useState(null);
   const [similarItems, setSimilarItems] = useState([]);
   const [pendingItem, setPendingItem] = useState(null);
@@ -42,7 +41,7 @@ const ItemPage = () => {
     if (cartItems.length === 0) {
       addToCart({
         ...service,
-        quantity: 1
+        quantity: 1,
       });
       setNotification(`Added ${service.name} to your cart!`);
     } else {
@@ -56,7 +55,7 @@ const ItemPage = () => {
     if (!pendingItem) return;
     addToCart({
       ...pendingItem,
-      quantity: 1
+      quantity: 1,
     });
     setPendingItem(null);
     setShowModal(false);
@@ -96,14 +95,14 @@ const ItemPage = () => {
       />
 
       <button
-        className="absolute left-4 flex top-4 text-black mr-4 text-3xl"
+        className="absolute left-4 flex top-4 md:hidden text-black mr-4 text-3xl"
         onClick={() => navigate(-1)}
       >
         <TbArrowBackUp />
       </button>
 
-      <div className="container mx-auto flex flex-col items-center mt-8">
-        <div className="w-full max-w-2xl bg-white rounded-lg">
+      <div className="container mx-auto flex flex-col items-center mt-14 md:mt-12">
+        <div className="w-full max-w-2xl bg-gray-100 rounded-lg">
           <img
             src={serviceData.image || "/default-image.jpg"}
             alt={serviceData.name}
@@ -129,12 +128,16 @@ const ItemPage = () => {
                   : handleAddToCart(serviceData)
               }
             >
-              {isServiceAdded(serviceData.name) ? "Remove from Cart" : "Add to Cart"}
+              {isServiceAdded(serviceData.name)
+                ? "Remove from Cart"
+                : "Add to Cart"}
             </button>
           </div>
 
-          <p className="bg-gray-100 text-xl text-gray-700 text-left font-semibold p-6">Description</p>
-          <p className="text-gray-600 text-left text-sm px-6 mb-4 bg-gray-100">
+          <p className="bg-gray-100 text-xl text-gray-700 text-left font-semibold p-6">
+            Description
+          </p>
+          <p className="text-gray-600 text-left text-sm px-6 pb-4 bg-gray-100">
             {serviceData.description} Lorem Ipsum is simply dummy text of the
             printing and typesetting industry. Lorem Ipsum has been the
             industry's standard dummy text ever since the 1500s, when an unknown
@@ -145,58 +148,111 @@ const ItemPage = () => {
       </div>
 
       {similarItems.length > 0 && (
-        <div className="mx-auto py-6 mt-8">
-          <h3 className="text-2xl font-bold text-gray-700 mb-4">
+        <div className="mx-auto pt-6 mt-8 ">
+          <h3 className="text-2xl font-bold text-gray-700  bg-white py-4 md:py-10">
             Similar Items
           </h3>
-          <div className="px-2">
-            {similarItems.map((service, index) => (
-              <div
-                key={index}
-                className="flex items-center bg-white shadow-md rounded-md py-4 border-t-2"
-              >
-                <div className="text-left px-4 font-sora w-3/4">
-                  <h2 className="text-md font-bold mb-2">{service.name}</h2>
-                  <p className="text-gray-600 mb-3 text-sm">
-                    {service.description}
-                  </p>
-                  <span className="text-md font-sora font-semibold text-black my-4">
-                    ₹{service.price}
-                  </span>
-                  <Link
-                    to={`/itemPage/${service.name}`}
-                    state={{
-                      serviceData: service,
-                      similarItems: similarItems,
-                    }}
-                    className="text-cyan-600 text-md font-semibold ml-4"
+          <div className="md:flex md:justify-center bg-white pb-6">
+          <div className="px-2 md:w-3/4 ">
+            <div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-4 md:px-6">
+              {similarItems.map((service, index) => (
+                <>
+                  {/* MobileViewOfCard */}
+                  <div
+                    key={index}
+                    className="md:hidden flex items-center bg-white shadow-md rounded-md py-6 border-t-2"
                   >
-                    View Details
-                  </Link>
-                </div>
-                <div className="relative flex items-center justify-center w-1/4 mr-2">
-                  <img
-                    src={service.image}
-                    alt=""
-                    className="rounded-lg bg-cyan-400"
-                  />
-                  <button
-                    className={`absolute -bottom-4 px-2 py-1 rounded-md border-2 border-cyan-700 ${
-                      isServiceAdded(service.name)
-                        ? "bg-white left-3"
-                        : "bg-white left-7"
-                    } text-cyan-700`}
-                    onClick={() =>
-                      isServiceAdded(service.name)
-                        ? handleRemoveFromCart(service.name)
-                        : handleAddToCart(service)
-                    }
+                    <div className="text-left px-4 font-sora w-3/4">
+                      <h2 className="text-md font-bold mb-2">{service.name}</h2>
+                      <p className="text-gray-600 mb-3 text-sm">
+                        {service.description}
+                      </p>
+                      <span className="text-md font-sora font-semibold text-black my-4">
+                        ₹{service.price}
+                      </span>
+                      <Link
+                        to={`/itemPage/${service.name}`}
+                        state={{
+                          serviceData: service,
+                          similarItems: similarItems,
+                        }}
+                        className="text-cyan-600 text-md font-semibold ml-4"
+                      >
+                        View Details
+                      </Link>
+                    </div>
+                    <div className="relative flex items-center justify-center w-1/4 mr-2">
+                      <img
+                        src={service.image}
+                        alt=""
+                        className="rounded-lg bg-cyan-400"
+                      />
+                      <button
+                        className={`absolute -bottom-4 px-2 pt-1 pb-[1px] rounded-md border-2 border-cyan-700 ${
+                          isServiceAdded(service.name)
+                            ? "bg-white mx-auto"
+                            : "bg-white mx-auto"
+                        } text-cyan-700`}
+                        onClick={() =>
+                          isServiceAdded(service.name)
+                            ? handleRemoveFromCart(service.name)
+                            : handleAddToCart(service)
+                        }
+                      >
+                        {isServiceAdded(service.name) ? "Remove" : "Add"}
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* DesktopViewOfCard */}
+                  <div
+                    key={index}
+                    className="hidden md:block bg-white shadow-md rounded-md pb-6 border-t-2 font-sora"
                   >
-                    {isServiceAdded(service.name) ? "Remove" : "Add"}
-                  </button>
-                </div>
-              </div>
-            ))}
+                    <div className="flex flex-col items-center md:items-start">
+                      <img
+                        src={service.image}
+                        alt=""
+                        className="rounded-lg bg-cyan-400 w-full"
+                      />
+                      <div className="flex flex-col md:flex-row justify-between w-full px-4 mt-4">
+                        <h2 className="text-lg font-bold mb-2 text-left">
+                          {service.name}
+                        </h2>
+                        <button
+                          className={`px-2 pt-1 pb-[1px] rounded-md border-2 h-10 border-cyan-700 ${
+                            isServiceAdded(service.name)
+                              ? "bg-white"
+                              : "bg-white"
+                          } text-cyan-700`}
+                          onClick={() =>
+                            isServiceAdded(service.name)
+                              ? handleRemoveFromCart(service.name)
+                              : handleAddToCart(service)
+                          }
+                        >
+                          {isServiceAdded(service.name) ? "Remove" : "Add"}
+                        </button>
+                      </div>
+                      <p className="text-gray-600 my-3 text-sm px-4 text-left">
+                        {service.description}
+                      </p>
+                      <Link
+                        to={`/itemPage/${service.name}`}
+                        state={{
+                          serviceData: service,
+                          similarItems: similarItems,
+                        }}
+                        className="text-cyan-600 text-md font-semibold ml-4"
+                      >
+                        View Details
+                      </Link>
+                    </div>
+                  </div>
+                </>
+              ))}
+            </div>
+          </div>
           </div>
         </div>
       )}
@@ -209,7 +265,7 @@ const ItemPage = () => {
           onClose={() => setNotification(null)}
         />
       )}
-      
+
       {isCartOpen && (
         <Cart
           items={cartItems}

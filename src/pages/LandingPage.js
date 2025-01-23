@@ -1,67 +1,75 @@
-import React,{useState} from 'react';
-import Navbar from '../components/Navigation/Navbar';
-import Search from '../components/Search/Search';
-import Location from '../components/Location/Location';
-import OurService from '../components/OurServices/OurService';
-import Offers from '../components/Offers/Offers';
-import ServiceOptions from '../components/ServiceOptions/ServiceOptions';
-
-import Footer from '../components/Footer/Footer';
-
+import React, { useState } from "react";
+import Navbar from "../components/Navigation/Navbar";
+import Search from "../components/Search/Search";
+import Location from "../components/Location/Location";
+import OurService from "../components/Categories/OurService";
+import Offers from "../components/Offers/Offers";
+import ServiceOptions from "../components/ServiceOptions/ServiceOptions";
+import Footer from "../components/Footer/Footer";
 
 function LandingPage() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
-  
+
   return (
     <div>
       {/* <div className="block md:hidden">Mobile View</div> */}
       {/* Navigation Bar */}
       <div className="landing-page-navbar">
-        <Navbar cartItemCount={cartItems.length}/>
-        </div>
+        <Navbar cartItemCount={cartItems.length} />
+      </div>
       {/* Location Component */}
-      <Location />
+      <Location className="flex md:hidden" />
       {/* Door2fy Logo */}
-      <div className="absolute -top-6 right-2 z-10">
+      <div className="absolute -top-6 right-2 z-10 block md:hidden">
         <img
           src="/assets/images/Logo-removebg-preview.png"
           alt="Door2fy Logo"
           className="w-32 "
         />
+      </div>
+      {/* Banner Section */}
+      <div className="relative landing-page-banner">
+        <div className="block md:hidden">
+          <img
+            src="/assets/images/LandingPageBanner.jpg"
+            alt="Landing Page Banner"
+            className="w-full  object-cover "
+          />
         </div>
-       {/* Banner Section */}
-       <div className="relative landing-page-banner">
-        <img
-          src="/assets/images/LandingPageBanner.jpg"
-          alt="Landing Page Banner"
-          className="w-full  object-cover"
-        />
-        
+        <div className="md:flex hidden h-screen ">
+            <img
+              src="/assets/images/DesktopView/Landing-Page-Banner-Desktop.png"
+              alt="Landing Page Banner"
+              className="w-full h-screen  rounded-b-[10rem] xl:mt-0 object-cover"
+              
+            />
+           
+          
+        </div>
       </div>
       <div className="landing-page-search">
-        <Search/>
+        <Search />
       </div>
       <div className="landing-page-ourService">
-        <OurService/>
+        <OurService />
       </div>
-      <div className='landing-page-offers bg-cyan-700'>
-        <Offers/>
+      <div className="landing-page-offers bg-cyan-700 ">
+        <Offers />
+      </div>
 
-      </div>
-      
       <div className="landing-page-serviceOptions">
-        <ServiceOptions/>
+        <ServiceOptions />
       </div>
 
-      <div className="landing-page-service-banner m-4">
-        <img src="/assets/images/mobilebanner.jpg" alt="" srcset="" />
+      <div className="landing-page-service-banner m-4 flex justify-center ">
+        <img src="/assets/images/mobilebanner.jpg" alt="" srcset="" className="md:w-1/3" />
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
-  )
+  );
 }
 
 export default LandingPage;
