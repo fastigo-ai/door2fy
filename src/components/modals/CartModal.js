@@ -7,7 +7,7 @@ import AccountModal from "./AccountModal";
 import { useCart } from "../../contexts/CartContext";
 import Notification from "../Notification/Notification";
 
-const CartModal = ({ items = [], onClose, onRemoveItem }) => {
+const CartModal = ({ items = [], onClose, onVerify }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -28,7 +28,7 @@ const CartModal = ({ items = [], onClose, onRemoveItem }) => {
     navigate("/checkout");
      }
      else{
-      <><AccountModal/></>
+      onVerify();
      }
   };
 
@@ -57,7 +57,7 @@ const CartModal = ({ items = [], onClose, onRemoveItem }) => {
     className="fixed inset-0 bg-black bg-opacity-50   z-10"
     onClick={onClose}
         ></div>
-      <div className="fixed bottom-0 md:top-[75px] md:right-1 z-50 w-full h-auto md:h-fit md:w-96 bg-white rounded-lg shadow-lg flex flex-col ">
+      <div className="fixed md:absolute bottom-0 md:top-[75px] md:right-1 z-50 md:z-20 w-full h-auto md:h-fit md:w-96 bg-white rounded-lg shadow-lg flex flex-col ">
         {/* Header */}
         <div className="flex justify-between items-center border-b p-4">
           <h2 className="text-lg font-semibold">Items in your cart</h2>
@@ -109,7 +109,7 @@ const CartModal = ({ items = [], onClose, onRemoveItem }) => {
             <p className="text-lg font-semibold">₹{calculateTotal()}</p>
           </div>
           <button
-            className="w-1/3 bg-cyan-600 text-white font-bold py-3 rounded-full hover:bg-yellow-500"
+            className="w-1/3 bg-cyan-600 text-white font-bold py-3 rounded-full hover:bg-cyan-800"
             onClick={handleCheckout}
           >
             CHECKOUT
@@ -132,6 +132,7 @@ const CartModal = ({ items = [], onClose, onRemoveItem }) => {
           onCancel={closeModal}
         />
       )}
+
     </>
   );
   

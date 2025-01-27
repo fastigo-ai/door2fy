@@ -3,9 +3,10 @@ import { IoChevronDown } from "react-icons/io5";
 import { MdGpsFixed } from "react-icons/md";
 import { FaTimes } from "react-icons/fa";
 import "./location.css";
+import { useLocationContext } from "../../contexts/LocationContext";
 
 export default function Location() {
-  const [location, setLocation] = useState("Janakpuri");
+  const {location, updateLocation,} = useLocationContext();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAutoDetecting, setIsAutoDetecting] = useState(false);
   const [locationQuery, setLocationQuery] = useState("");
@@ -14,24 +15,36 @@ export default function Location() {
   const fetchCityFromGoogleAPI = async (lat, lon) => {
     const apiKey = process.env.REACT_APP_GOOGLE_GEOCODE_API_KEY;
     const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${apiKey}`;
-
+  
     try {
       const response = await fetch(url);
       const data = await response.json();
-
+  
       if (data.status === "OK") {
-        const addressComponents = data.results[0].address_components;
-        const cityComponent = addressComponents.find((component) =>
+        const result = data.results[0];
+        const cityComponent = result.address_components.find((component) =>
           component.types.includes("locality")
         );
-        return cityComponent ? cityComponent.long_name : "Unknown City";
+        return {
+          title: cityComponent ? cityComponent.long_name : "Unknown City",
+          description: result.formatted_address || "Address not available",
+          address_components: result.address_components || [], // Include address components
+        };
       } else {
         console.error("Error with Geocoding API:", data.error_message);
-        return "Error fetching city";
+        return {
+          title: "Error fetching city",
+          description: "Details unavailable",
+          address_components: [],
+        };
       }
     } catch (error) {
       console.error("Error fetching city:", error);
-      return "Error fetching city";
+      return {
+        title: "Error fetching city",
+        description: "Details unavailable",
+        address_components: [],
+      };
     }
   };
 
@@ -41,8 +54,8 @@ export default function Location() {
         navigator.geolocation.getCurrentPosition(
           async (position) => {
             const { latitude, longitude } = position.coords;
-            const city = await fetchCityFromGoogleAPI(latitude, longitude);
-            resolve(city);
+            const detectedLocation = await fetchCityFromGoogleAPI(latitude, longitude);
+            resolve(detectedLocation);
           },
           (error) => {
             reject(error);
@@ -56,20 +69,29 @@ export default function Location() {
 
   const handleLocationSelection = async (selectedLocation) => {
     setIsModalOpen(false);
-
+  
     if (selectedLocation === "Auto-Detect") {
       setIsAutoDetecting(true);
       try {
         const detectedLocation = await autoDetectLocation();
-        setLocation(detectedLocation);
+        updateLocation(detectedLocation);
       } catch (error) {
         console.error("Error detecting location:", error);
-        setLocation("Error detecting location");
+        updateLocation({
+          title: "Error detecting location",
+          description: "Details unavailable",
+          address_components: [],
+        });
       } finally {
         setIsAutoDetecting(false);
       }
     } else {
-      setLocation(selectedLocation);
+      console.log(selectedLocation);
+      updateLocation({
+        title: selectedLocation.structured_formatting.main_text || selectedLocation,
+      description: selectedLocation.description || "Details unavailable",
+      address_components: selectedLocation.address_components || [],
+      });
     }
   };
 
@@ -83,7 +105,7 @@ export default function Location() {
         const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${userInput}&types=geocode&key=${apiKey}`;
         const response = await fetch(url);
         const data = await response.json();
-
+        console.log(data);
         if (data.predictions) {
           setLocationResults(data.predictions);
         } else {
@@ -104,10 +126,10 @@ export default function Location() {
     <div className="z-20">
       {/* Location Display */}
       <div className="location absolute top-0 w-full md:w-[10rem] lg:w-[15rem] p-4 md:py-3 md:px-0 text-white md:text-cyan-800 text-left">
-        <div className="text-xl md:text-lg font-semibold">{location}</div>
+        <div className="text-xl md:text-lg font-semibold">{location.title}</div>
         <div className="flex items-center" onClick={() => setIsModalOpen(true)}>
           <h3 className="text-xs cursor-pointer" >
-            Shivaji Marg, Block A1, Janakpuri, ...
+          {location.description.length > 20 ? location.description.slice(0, 20) + "..." : location.description}
           </h3>
           <IoChevronDown className="ml-2" />
         </div>
@@ -123,7 +145,7 @@ export default function Location() {
           ></div>
 
           {/* Modal */}
-          <div className="fixed bottom-0 md:top-[75px] md:left-1 z-50 w-full h-2/3 md:h-2/3 md:w-96 bg-white rounded-lg shadow-lg p-4 font-sora">
+          <div className="fixed bottom-0 md:top-[75px] md:left-1 z-50 w-full h-2/5 md:h-3/5 md:w-96 bg-white rounded-lg shadow-lg p-4 font-sora">
             <div className="flex justify-between items-center border-b pb-2">
               <h2 className="text-2xl font-semibold text-gray-800">Select Location</h2>
               <button
@@ -155,13 +177,17 @@ export default function Location() {
                 value={locationQuery}
                 onChange={handleSearchInModal}
               />
-              <div className="max-h-48 overflow-y-auto mt-2">
-                {locationResults.map((result, index) => (
+              <div className="max-h-48 overflow-y-auto mt-2 text-left">
+                {Array.isArray(locationResults) &&
+                locationResults.map((result, index) => (
                   <div
                     key={index}
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleLocationSelection(result.description)}
+                    onClick={() => handleLocationSelection(result)}
                   >
+                    <div className="text-sm font-medium text-gray-800">
+                    {result.structured_formatting.main_text}
+                    </div>
                     <div className="text-sm font-medium text-gray-800">
                       {result.description}
                     </div>

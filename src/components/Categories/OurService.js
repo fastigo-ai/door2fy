@@ -18,7 +18,7 @@ const ElectronicsSection = () => {
   ];
 
   return (
-    <div className="bg-white text-center font-glory px-4 py-6">
+    <div className="bg-white text-center font-glory px-4 py-2 md:py-6">
   {/* Heading */}
   <h1 className="text-cyan-700 text-3xl md:text-4xl font-sora font-semibold mb-4">
     Explore Our Services

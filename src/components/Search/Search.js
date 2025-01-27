@@ -44,7 +44,7 @@ const Search = () => {
         results.map((result, index) => (
           <div
             key={index}
-            className="p-3 hover:bg-gray-100 border-b last:border-b-0"
+            className="p-3 hover:bg-gray-100 border-b last:border-b-0 flex justify-between"
           >
             <div className="font-medium text-gray-800">{result.name}</div>
             <div className="text-sm text-gray-500">{result.category}</div>

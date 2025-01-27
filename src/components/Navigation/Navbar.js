@@ -81,7 +81,7 @@ export default function BottomNavbar({toggleCart}) {
 
       {/* Bottom Navbar */}
       <div className="flex md:hidden justify-center font-sora">
-        <div className="fixed bottom-12 w-[90%] bg-white shadow-lg rounded-3xl border-t border-gray-200 z-30">
+        <div className="fixed bottom-6 w-[90%] bg-white shadow-lg rounded-3xl border-t border-gray-200 z-30">
           <div className="flex justify-between items-center px-3 py-2 mx-3">
             {/* Home */}
             <Link
@@ -133,10 +133,18 @@ export default function BottomNavbar({toggleCart}) {
       </div>
 
       {/* Modals */}
-      {activeModal === "booking" && <BookingModal onClose={closeModal} />}
+      {activeModal === "booking" && <BookingModal onClose={closeModal}
+       onVerify={()=>{
+        closeModal();
+        openModal("account");}}
+      />}
       {activeModal === "categories" && <CategoriesModal onClose={closeModal} />}
       {activeModal === "account" && <AccountModal onClose={closeModal} />}
-      {activeModal === "cart" && <CartModal onClose={closeModal} />}
+      {activeModal === "cart" && <CartModal onClose={closeModal} 
+      onVerify={()=>{
+        closeModal();
+        openModal("account");}} 
+        />}
     </>
   );
 }

@@ -11,12 +11,14 @@ import PrinterSupport from "./pages/Services/PrinterSupport/PrinterSupport";
 import ServiceSupport from "./pages/Services/ServiceSupport/ServiceSupport";
 import ItemPage from "./pages/ItemPage/ItemPage";
 import { CartProvider } from "./contexts/CartContext";
+import { LocationProvider } from "./contexts/LocationContext";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
 
 function App() {
   return (
     <div className="App">
       <CartProvider>
+      <LocationProvider>
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -30,6 +32,7 @@ function App() {
           <Route path="/checkout" element={<CheckoutPage/>} />
         </Routes>
       </Router>
+      </LocationProvider>
       </CartProvider>
     </div>
   );
