@@ -57,7 +57,11 @@ const CartModal = ({ items = [], onClose, onVerify }) => {
     className="fixed inset-0 bg-black bg-opacity-50   z-10"
     onClick={onClose}
         ></div>
-      <div className="fixed md:absolute bottom-0 md:top-[75px] md:right-1 z-50 md:z-20 w-full h-auto md:h-fit md:w-96 bg-white rounded-lg shadow-lg flex flex-col ">
+        
+      <div className="fixed bottom-0 md:top-[75px] md:right-1 z-50 md:z-20 w-full h-auto md:h-fit md:w-96 bg-white rounded-lg shadow-lg flex flex-col overflow-y-auto"
+      style={{ maxHeight: "90vh" }} // Ensures scrollability when clipped
+      onClick={(e) => e.stopPropagation()} // Prevents closing on clicking inside modal
+      >
         {/* Header */}
         <div className="flex justify-between items-center border-b p-4">
           <h2 className="text-lg font-semibold">Items in your cart</h2>

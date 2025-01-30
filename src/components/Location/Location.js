@@ -145,7 +145,10 @@ export default function Location() {
           ></div>
 
           {/* Modal */}
-          <div className="fixed bottom-0 md:top-[75px] md:left-1 z-50 w-full h-2/5 md:h-3/5 md:w-96 bg-white rounded-lg shadow-lg p-4 font-sora">
+          <div className="fixed bottom-0 md:top-[75px] md:left-1 z-50 w-full h-2/5 md:h-3/5 md:w-96 bg-white rounded-lg shadow-lg p-4 font-sora overflow-y-auto"
+          style={{ maxHeight: "90vh" }} // Ensures scrollability when clipped
+          onClick={(e) => e.stopPropagation()} // Prevents closing on clicking inside modal
+          >
             <div className="flex justify-between items-center border-b pb-2">
               <h2 className="text-2xl font-semibold text-gray-800">Select Location</h2>
               <button
