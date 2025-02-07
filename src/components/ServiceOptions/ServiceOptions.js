@@ -1,11 +1,65 @@
-import React from 'react';
+import React from "react";
+import {Link} from "react-router-dom"
 
 const SmoothScrollSlider = () => {
-  const options = Array.from({ length: 12 }, (_, i) => ({
-    id: i + 1,
-    label: `Option ${i + 1}`,
-    image: '/assets/images/Login.webp', // Placeholder image for options
-  }));
+  const options = [
+    {
+      name: "Windows service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed.",
+      price: 599,
+      image: "/assets/images/services/laptopsupport.jpg",
+    },
+    {
+      name: "MacBook service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
+      price: 699,
+      image: "/assets/images/services/macbooksupport.jpg",
+    },
+    {
+      name: "Desktop service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
+      price: 599,
+      image: "/assets/images/services/desktopsupport.jpg",
+    },
+    {
+      name: "Gameing latop|desktop service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
+      price: 799,
+      image: "/assets/images/services/componentsupport.jpg",
+    },
+    {
+      name: "Windows service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed.",
+      price: 599,
+      image: "/assets/images/services/laptopsupport.jpg",
+    },
+    {
+      name: "MacBook service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
+      price: 699,
+      image: "/assets/images/services/macbooksupport.jpg",
+    },
+    {
+      name: "Desktop service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
+      price: 599,
+      image: "/assets/images/services/desktopsupport.jpg",
+    },
+    {
+      name: "Gameing latop|desktop service",
+      description:
+        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
+      price: 799,
+      image: "/assets/images/services/componentsupport.jpg",
+    },
+  ];
 
   return (
     <div className="w-full my-12">
@@ -16,35 +70,59 @@ const SmoothScrollSlider = () => {
       {/* Desktop Grid View */}
       <div className="hidden md:grid grid-cols-6 gap-8 px-4 md:px-[10%] mb-20">
         {options.map((option) => (
+          <Link
+          to={`/itemPage/${option.name}`}
+          state={{
+            serviceData: option,
+            similarItems: options,
+          }}
+          className="text-cyan-600 text-md font-semibold ml-4"
+        >
           <div key={option.id} className="flex flex-col items-center ">
             <img
               src={option.image}
-              alt={option.label}
-              className="w-full h-full object-cover rounded-lg shadow-md bg-sky-200"
+              alt={option.name}
+              className="w-full h-36 object-cover rounded-lg shadow-md bg-sky-200"
             />
-            <p className="mt-2 text-sm font-medium text-gray-700">{option.label}</p>
+            <p className="mt-2 text-sm font-medium text-gray-700">
+              {option.name}
+            </p>
           </div>
+          </Link>
         ))}
       </div>
 
       {/* Scrollable View for Mobile */}
       <div
-        className="flex ml-4 overflow-x-auto snap-x snap-mandatory space-x-4 scrollbar-hide md:hidden"
-        style={{ scrollBehavior: 'smooth' }}
+        className="flex ml-4 mt-6 overflow-x-auto snap-x snap-mandatory space-x-4 scrollbar-hide md:hidden "
+        style={{ scrollBehavior: "smooth" }}
       >
         {/* Two Rows */}
-        <div className="grid grid-rows-2 grid-flow-col gap-6 ml-4">
+        <div className="grid grid-rows-1 grid-flow-col gap-6 ml-4">
           {options.map((option) => (
+            <Link
+            to={`/itemPage/${option.name}`}
+            state={{
+              serviceData: option,
+              similarItems: options,
+            }}
+            className=""
+          >
             <div
               key={option.id}
-              className="snap-start flex flex-col items-center justify-center w-40 h-40 bg-sky-200 rounded-lg shadow-md p-2"
+              className="snap-start flex flex-col items-center justify-center w-40  p-2"
             >
               <img
                 src={option.image}
-                alt={option.label}
-                className="w-full h-full object-cover rounded-md"
+                alt={option.name}
+                className="w-full h-36 object-cover rounded-md"
               />
+              <p className="mt-2 text-sm font-medium text-gray-700">
+                {option.name}
+              </p>
             </div>
+          </Link>
+            
           ))}
         </div>
       </div>

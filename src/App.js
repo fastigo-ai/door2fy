@@ -13,6 +13,15 @@ import ItemPage from "./pages/ItemPage/ItemPage";
 import { CartProvider } from "./contexts/CartContext";
 import { LocationProvider } from "./contexts/LocationContext";
 import CheckoutPage from "./pages/CheckoutPage/CheckoutPage";
+import UpgradeSupport from "./pages/Services/UpgradeSupport/UpgradeSupport";
+import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import TermsOfUse from "./pages/TermOfUse/TermOfUse";
+import ContactUs from "./pages/ContactUs/ContactUs";
+import AntiDiscriminationPolicy from "./pages/AntiDiscrimationPolicy/AnitDiscrimationPolicy";
+import RefundPolicy from "./pages/RefundPolicy/RefundPolicy";
+import Blog from "./pages/Blog/Blog";
+import ComingSoonPage from "./pages/ComingSoon/ComingSoon";
 
 function App() {
   return (
@@ -28,8 +37,17 @@ function App() {
           <Route path="/coding-support" element={<CodingSupport/>} />          
           <Route path="/printer-support" element={<PrinterSupport/>} />          
           <Route path="/service-support" element={<ServiceSupport/>} />          
+          <Route path="/upgrade-support" element={<UpgradeSupport/>} />          
           <Route path="/itemPage/:itemName" element={<ItemPage/>} />
           <Route path="/checkout" element={<CheckoutPage/>} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/about-us" element={<AboutUs/>} />
+          <Route path="/terms-of-use" element={<TermsOfUse/>} />
+          <Route path="/contact-us" element={<ContactUs/>} />
+          <Route path="/anti-discrimation-policy" element={<AntiDiscriminationPolicy/>} />
+          <Route path="/refund-policy" element={<RefundPolicy/>} />
+          <Route path="/ComingSoon" element={<ComingSoonPage/>} />
+
         </Routes>
       </Router>
       </LocationProvider>

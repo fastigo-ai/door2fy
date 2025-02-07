@@ -12,8 +12,9 @@ const ElectronicsSection = () => {
     { imgSrc: '/assets/images/Macbook-HD.png', text: 'Macbook Support', link: '/macbook-support' },
     { imgSrc: '/assets/images/Laptop-HD.png', text: 'Laptop Support', link: '/laptop-support' },
     { imgSrc: '/assets/images/Desktop-HD.png', text: 'Desktop Support', link: '/desktop-support' },
-    { imgSrc: '/assets/images/Printer-HD.png', text: 'Printer Support', link: '/printer-support' },
-    { imgSrc: '/assets/images/Coding.png', text: 'Coding Issue', link: '/coding-support' },
+    { imgSrc: '/assets/images/component-hd.png', text: 'Component Support', link: '/upgrade-support' },
+    // { imgSrc: '/assets/images/Printer-HD.png', text: 'Printer Support', link: '/printer-support' },
+    // { imgSrc: '/assets/images/Coding.png', text: 'Coding Issue', link: '/coding-support' },
     { imgSrc: '/assets/images/Service-HD.png', text: 'Service Issue', link: '/service-support' },
   ];
 
@@ -29,7 +30,7 @@ const ElectronicsSection = () => {
 
   {/* Services Section */}
   <div className="flex justify-center">
-    <div className="grid grid-cols-3 gap-6 p-4 md:p-6 bg-white rounded-md w-full max-w-3xl lg:my-12">
+    <div className="grid grid-cols-3 gap-6 gap-y-10 p-4 md:p-6 bg-white rounded-md w-full max-w-3xl lg:my-12">
       {electronicsData.map((item, index) => (
         <div
           key={index}

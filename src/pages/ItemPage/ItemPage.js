@@ -22,6 +22,11 @@ const ItemPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  
+  useEffect(() => {
     // Get data from state or localStorage
     const data = location.state || JSON.parse(localStorage.getItem(itemName));
 

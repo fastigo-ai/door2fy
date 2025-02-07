@@ -17,6 +17,10 @@ const CodingSupport = () => {
     const [showModal, setShowModal] = useState(false);
     const [pendingItem, setPendingItem] = useState(null);
   
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
     const handleServiceTypeChange = (type) => {
       setActiveServiceType(type);
     };
@@ -141,8 +145,8 @@ const CodingSupport = () => {
         cartItemCount={cartItems.length}
       />
 
-      <div className="flex items-center justify-center my-10">
-        <img src="/assets/images/icons1.png" alt="" />
+      <div className="flex items-center justify-center mt-10 md:my-10">
+        <img src="/assets/images/icons1.png" alt="" className="sm:h-[50vh]" />
         <button
           className="absolute left-4 flex top-4 md:hidden text-black mr-4 text-3xl"
           onClick={() => window.history.back()}

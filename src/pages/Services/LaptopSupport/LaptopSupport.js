@@ -17,6 +17,11 @@ const LaptopSupport = () => {
   const [showModal, setShowModal] = useState(false);
   const [pendingItem, setPendingItem] = useState(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+
   const handleServiceTypeChange = (type) => {
     setActiveServiceType(type);
   };
@@ -62,112 +67,151 @@ const LaptopSupport = () => {
     activeServiceType === "BookingSupport"
       ? [
           {
-            name: "Not sure for the issue other issue",
-            description:
-              "We handle everything!Selrct this if you are not sure of the issue ",
-            price: 99,
-            image: "/assets/images/Login.webp",
-          },
-          {
             name: "Display Issue",
+            duration: "45 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Keyboard issue",
+            duration: "25 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Touchpad issue",
+            duration: "40 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Charging/Power issue",
+            duration: "45 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Overheating issue",
+            duration: "45 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Software/OS related issue/System Formatting",
+            duration: "45 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Port issue",
+            duration: "30 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 299,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "My system is slow/Hanging issue",
+            duration: "50 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Speaker/ Camera/ Internet issue",
+            duration: "30 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 199,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
             name: "Physical damage",
+            duration: "90 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra ",
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
+          },
+          {
+            name: "Laptop Overheating.",
+            duration: "40 mins.",
+            description:
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
+            price: 499,
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           // Add other BookingSupport services
         ]
       : [
           {
-            name: "I have a desktop",
+            name: "Not Sure About the Problem.",
+            duration: "",
             description:
-              "We handle everything! Select this if you are not sure of the issue",
+              "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
-            name: "I have a windows laptop",
+            name: "Excel Not Working.",
+            duration: "5-10 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
+              "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
-            name: "I have a MacBook/Apple laptop",
+            name: "Laptop Hanging or Freezing.",
+            duration: "5-10 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
+              "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           {
-            name: "I have a print",
+            name: "Windows Starting Slowly.",
+            duration: "5-10 mins.",
             description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
+              "Our experts will diagnose the problem and provide the best possible solution.",
+            price: 199,
+            image: "/assets/images/services/laptopsupport.jpg",
+          },
+          {
+            name: "Wi-Fi Not Connecting.",
+            duration: "5-10 mins.",
+            description:
+              "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/Login.webp",
+            image: "/assets/images/services/laptopsupport.jpg",
+          },
+          {
+            name: "Windows Updates Not Installing.",
+            duration: "5-10 mins.",
+            description:
+              "Our experts will diagnose the problem and provide the best possible solution.",
+            price: 119,
+            image: "/assets/images/services/laptopsupport.jpg",
+          },
+          {
+            name: "Software Not Opening or Crashing.",
+            duration: "5-10 mins.",
+            description:
+              "Our experts will diagnose the problem and provide the best possible solution.",
+            price: 99,
+            image: "/assets/images/services/laptopsupport.jpg",
           },
           // Add other QuickSupport services
         ];
@@ -179,8 +223,8 @@ const LaptopSupport = () => {
         cartItemCount={cartItems.length}
       />
 
-      <div className="flex items-center justify-center my-10">
-        <img src="/assets/images/icons1.png" alt="" />
+      <div className="flex items-center justify-center mt-10 md:my-10">
+      <img src="/assets/images/categoryBanner/windowsservice.png" alt="" className="sm:h-[50vh]"/>
         <button
           className="absolute left-4 flex top-4 md:hidden text-black mr-4 text-3xl"
           onClick={() => window.history.back()}
@@ -233,7 +277,10 @@ const LaptopSupport = () => {
                         <h2 className="text-md font-bold mb-2">
                           {service.name}
                         </h2>
-                        <p className="text-gray-600 mb-3 text-sm">
+                        <p
+                          className="text-gray-600 mb-3 text-sm"
+                          style={{ whiteSpace: "pre-line" }}
+                        >
                           {service.description}
                         </p>
                         <span className="text-md font-sora font-semibold text-black my-4">
@@ -303,7 +350,10 @@ const LaptopSupport = () => {
                             {isServiceAdded(service.name) ? "Remove" : "Add"}
                           </button>
                         </div>
-                        <p className="text-gray-600 my-3 text-sm px-4 text-left">
+                        <p
+                          className="text-gray-600 my-3 text-sm px-4 text-left"
+                          style={{ whiteSpace: "pre-line" }}
+                        >
                           {service.description}
                         </p>
                         <Link
@@ -323,55 +373,145 @@ const LaptopSupport = () => {
               </div>
             </div>
           </div>
-          
-          <div className="flex justify-center my-4">
-          <div className=" p-4 mt-6 font-sora md:mt-0 md:w-1/2 ">
-            <h2 className="text-2xl text-cyan-700 font-semibold my-4 mb-6">
-              Professional Engineer repair your laptop
-            </h2>
-            <ul className="space-y-4 mx-4 mb-8">
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> Smooth Speed and
-                Performance
-              </li>
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> All Type of error
-                solver
-              </li>
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> Data Protection
-              </li>
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> Affordable prices
-              </li>
-            </ul>
 
-            <h2 className="text-xl text-cyan-700 font-semibold my-4 mb-6">
-              Ask your questions with our expert:
-            </h2>
-            <ul className="space-y-4 mx-4 mb-8">
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> High-Quality Service
-              </li>
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> Experienced Laptop
-                Service Engineers
-              </li>
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> 1-Year warranty
-                spare parts
-              </li>
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> Subscription Plans
-                Available
-              </li>
-              <li className="flex items-center">
-                <FaCheck className="text-green-500 mr-2" /> 7-day warranty on
-                service
-              </li>
-            </ul>
+          <div className="flex justify-center my-4">
+            <div className=" p-4 mt-6 font-sora md:mt-0 md:w-1/2 ">
+              <h2 className="text-2xl text-cyan-700 font-semibold my-4 mb-6">
+                How it works
+              </h2>
+              <ol className="space-y-4 mx-4 mb-8">
+                <li className="flex items-top">
+                  <FaCheck className="text-green-500 mr-2 w-10" />
+                  <div className="text-left font-bold">
+                    Check-up
+                    <p className="font-normal text-sm">
+                      The technician inspects your laptop & provides a diagnosis
+                      with a repair quote.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-top">
+                  <FaCheck className="text-green-500 mr-2 w-10" />
+                  <div className="text-left font-bold">
+                    Sourcing spare parts (if required)
+                    <p className="font-normal text-sm">
+                      If needed, the technician will procure spare parts from
+                      the local market.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-top">
+                  <FaCheck className="text-green-500 mr-2 w-10" />
+                  <div className="text-left font-bold">
+                    Repair
+                    <p className="font-normal text-sm">
+                      The technician hands over the hard disk for data safety &
+                      completes the repair.
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-top">
+                  <FaCheck className="text-green-500 mr-2 w-10" />
+                  <div className="text-left font-bold">
+                    Post Repair
+                    <p className="font-normal text-sm">
+                      The technician thoroughly cleans the area & surfaces after
+                      the repair
+                    </p>
+                  </div>
+                </li>
+                <li className="flex items-top">
+                  <FaCheck className="text-green-500 mr-2 w-10" />
+                  <div className="text-left font-bold">
+                   
+                    Payment
+                    <p className="font-normal text-sm">
+                      
+                      Pay the final repair amount, minus the booking fee already
+                      paid
+                    </p>
+                  </div>
+                </li>
+              </ol>
+
+              <h2 className="text-xl text-cyan-700 font-semibold my-4 mb-6">
+                Please Note:
+              </h2>
+              <ul className="space-y-4 mx-4 mb-8">
+                <li className="flex items-top  w-full">
+                  <FaCheck className="text-green-500 mr-2 w-10" />
+                  <div className="w-4/5 text-left">Check-up for
+                  motherboard issue, the laptop will be taken to the repair
+                  shop.</div> 
+                </li>
+                <li className="flex items-top w-full">
+                  <FaCheck className="text-green-500 mr-2 w-10" /> 
+                  <div className="w-4/5 text-left">The repair quote
+                  will be provided after the check-up.</div>
+                </li>
+                <li className="flex items-top w-full">
+                  <FaCheck className="text-green-500 mr-2 w-10" /> 
+                  <div className="w-4/5 text-left">Visitation charges
+                  will be adjusted in the final quote.</div>
+                </li>
+                <li className="flex items-top w-full ">
+                  <FaCheck className="text-green-500 mr-2 w-10" /> 
+                  <div className="w-4/5 text-left">We don't repair
+                  commercial appliances.</div>
+                </li>
+                
+              </ul>
+            </div>
           </div>
-          </div>
+          {/* <div className="flex justify-center my-4">
+            <div className=" p-4 mt-6 font-sora md:mt-0 md:w-1/2 ">
+              <h2 className="text-2xl text-cyan-700 font-semibold my-4 mb-6">
+                Professional Engineer repair your laptop
+              </h2>
+              <ul className="space-y-4 mx-4 mb-8">
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> Smooth Speed and
+                  Performance
+                </li>
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> All Type of error
+                  solver
+                </li>
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> Data Protection
+                </li>
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> Affordable prices
+                </li>
+              </ul>
+
+              <h2 className="text-xl text-cyan-700 font-semibold my-4 mb-6">
+                Ask your questions with our expert:
+              </h2>
+              <ul className="space-y-4 mx-4 mb-8">
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> High-Quality
+                  Service
+                </li>
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> Experienced Laptop
+                  Service Engineers
+                </li>
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> 1-Year warranty
+                  spare parts
+                </li>
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> Subscription Plans
+                  Available
+                </li>
+                <li className="flex items-center">
+                  <FaCheck className="text-green-500 mr-2" /> 7-day warranty on
+                  service
+                </li>
+              </ul>
+            </div>
+          </div> */}
         </div>
       </div>
 

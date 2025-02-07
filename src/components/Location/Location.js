@@ -98,14 +98,29 @@ export default function Location() {
   const handleSearchInModal = async (e) => {
     const userInput = e.target.value;
     setLocationQuery(userInput);
-
+  
     if (userInput.length > 2) {
       try {
+        const GOOGLE_APPS_SCRIPT_PROXY = process.env.REACT_APP_GOOGLE_APPS_SCRIPT_PROXY;
         const apiKey = process.env.REACT_APP_GOOGLE_PLACES_API_KEY;
-        const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${userInput}&types=geocode&key=${apiKey}`;
-        const response = await fetch(url);
+        const url = `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${userInput}&types=geocode&key=${apiKey}`;
+        
+        const proxyUrl = `${GOOGLE_APPS_SCRIPT_PROXY}?url=${encodeURIComponent(url)}`;
+        
+        const response = await fetch(proxyUrl, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
-        console.log(data);
+        console.log('API Response:', data);
+        
         if (data.predictions) {
           setLocationResults(data.predictions);
         } else {
@@ -119,6 +134,7 @@ export default function Location() {
       setLocationResults([]);
     }
   };
+  
 
 
 

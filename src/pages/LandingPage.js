@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navigation/Navbar";
 import Search from "../components/Search/Search";
 import Location from "../components/Location/Location";
@@ -11,6 +11,10 @@ function LandingPage() {
   const [cartItems, setCartItems] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   return (
     <div>
@@ -64,7 +68,7 @@ function LandingPage() {
       </div>
 
       <div className="landing-page-service-banner m-4 flex justify-center ">
-        <img src="/assets/images/mobilebanner.jpg" alt="" srcset="" className="md:w-1/3" />
+        <img src="/assets/images/mobilebanner.png" alt="" srcset="" className="md:w-2/3" />
       </div>
 
       <Footer />

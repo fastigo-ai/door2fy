@@ -31,6 +31,11 @@ const CheckoutPage = () => {
   const [showAddNewForm, setShowAddNewForm] = useState(false);
   const [selectedCustomer, setSelectedCustomer] = useState(null);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  
   // Initialize data based on navigation source
   useEffect(() => {
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];

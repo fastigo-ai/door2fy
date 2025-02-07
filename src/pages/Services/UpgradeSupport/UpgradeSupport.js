@@ -9,18 +9,17 @@ import Notification from "../../../components/Notification/Notification";
 import Confirmation from "../../../components/modals/Confirmation/ConfirmationModal";
 import Navbar from "../../../components/Navigation/Navbar";
 
-const MacbookSupport = () => {
+const UpgradeSupport = () => {
   const { cartItems, addToCart, removeFromCart, isServiceAdded } = useCart();
     const [activeServiceType, setActiveServiceType] = useState("BookingSupport");
     const [isCartOpen, setIsCartOpen] = useState(false);
     const [notification, setNotification] = useState(null);
     const [showModal, setShowModal] = useState(false);
     const [pendingItem, setPendingItem] = useState(null);
-  
+    
     useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-
+        window.scrollTo(0, 0);
+      }, []);
     
     const handleServiceTypeChange = (type) => {
       setActiveServiceType(type);
@@ -67,93 +66,45 @@ const MacbookSupport = () => {
     activeServiceType === "BookingSupport"
       ? [
         {
-          name: "Display Issue",
+          name: "Graphics card installation",
           duration: "45 mins.",
           description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 699,
-          image: "/assets/images/services/macbooksupport.jpg",
-        },
-        {
-          name: "Keyboard issue",
-          duration: "30 mins.",
-          description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
+            "Enhance visual performance for gaming or graphic-intensive tasks.",
           price: 599,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
-          name: "Touchpad issue",
+          name: "Ram installation",
           duration: "40 mins.",
           description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 599,
-          image: "/assets/images/services/macbooksupport.jpg",
-        },
-        {
-          name: "Charging/Power issue",
-          duration: "45 mins.",
-          description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 499,
-          image: "/assets/images/services/macbooksupport.jpg",
-        },
-        {
-          name: "Overheating issue",
-          duration: "50 mins.",
-          description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 599,
-          image: "/assets/images/services/macbooksupport.jpg",
-        },
-        {
-          name: "Software/OS related issue/System Formatting",
-          duration: "90 mins.",
-          description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
+            "Improve your laptop’s multitasking speed by adding more memory.",
           price: 799,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
-          name: "Port issue",
-          duration: "40 mins.",
+          name: "Hardisk Installation",
+          duration: "60 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 399,
-          image: "/assets/images/services/macbooksupport.jpg",
+          price: 599,
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
-          name: "My system is slow/Hanging issue",
+          name: "SMPS Installation",
           duration: "45 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 399,
-          image: "/assets/images/services/macbooksupport.jpg",
+          price: 999,
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
-          name: "Speaker/ Camera/ Internet issue",
-          duration: "40 mins.",
-          description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 299,
-          image: "/assets/images/services/macbooksupport.jpg",
-        },
-        {
-          name: "Physical damage",
+          name: "Mother Board Installation",
           duration: "90 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-          price: 699,
-          image: "/assets/images/services/macbooksupport.jpg",
+          price: 599,
+          image: "/assets/images/services/componentsupport.jpg",
         },
-        // {
-        //   name: "Laptop Overheating.",
-        //   duration: "40 mins.",
-        //   description:
-        //     "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-        //   price: 499,
-        //   image: "/assets/images/Login.webp",
-        // },
           // Add other BookingSupport services
         ]
       : [
@@ -163,7 +114,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
           name: "Excel Not Working.",
@@ -171,7 +122,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
           name: "Laptop Hanging or Freezing.",
@@ -179,7 +130,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
           name: "Windows Starting Slowly.",
@@ -187,7 +138,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
           name: "Wi-Fi Not Connecting.",
@@ -195,7 +146,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
           name: "Windows Updates Not Installing.",
@@ -203,7 +154,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 119,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
         {
           name: "Software Not Opening or Crashing.",
@@ -211,7 +162,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/services/componentsupport.jpg",
         },
           // Add other QuickSupport services
         ];
@@ -224,7 +175,7 @@ const MacbookSupport = () => {
       />
 
       <div className="flex items-center justify-center mt-10 md:my-10">
-        <img src="/assets/images/categoryBanner/macbookservice.png" alt="" className="sm:h-[50vh]"/>
+      <img src="/assets/images/categoryBanner/componentservice.png" alt="" className="sm:h-[50vh]"/>
         <button
           className="absolute left-4 flex top-4 md:hidden text-black mr-4 text-3xl"
           onClick={() => window.history.back()}
@@ -277,7 +228,6 @@ const MacbookSupport = () => {
                         <h2 className="text-md font-bold mb-2">
                           {service.name}
                         </h2>
-                        
                         <p className="text-gray-600 mb-3 text-sm">
                           {service.description}
                         </p>
@@ -348,9 +298,6 @@ const MacbookSupport = () => {
                             {isServiceAdded(service.name) ? "Remove" : "Add"}
                           </button>
                         </div>
-                        <p className="text-gray-600 mb-3 text-sm font-semibold px-4">
-                          Duration: {service.duration}
-                        </p>
                         <p className="text-gray-600 my-3 text-sm px-4 text-left">
                           {service.description}
                         </p>
@@ -541,4 +488,4 @@ const MacbookSupport = () => {
   );
 };
 
-export default MacbookSupport;
+export default UpgradeSupport;
