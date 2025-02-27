@@ -3,7 +3,7 @@ import { FaTimes } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import RemoveItemModal from "./Confirmation/ConfirmationModal";
-import AccountModal from "./AccountModal";
+import AccountModal from "./FirebaseAccountModal";
 import { useCart } from "../../contexts/CartContext";
 import Notification from "../Notification/Notification";
 

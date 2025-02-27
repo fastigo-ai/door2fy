@@ -32,10 +32,10 @@ const PrivacyPolicy = () => {
 
       <div className="max-w-5xl mx-auto mt-24 p-6 bg-gray-100 rounded-lg text-left font-sans">
         <h1 className="text-3xl font-bold text-gray-800 mb-6">Privacy Policy</h1>
-        <p>Effective Date: 05 Feb 2025</p>
-        <p>Last Updated: 05 Feb 2025</p>
+        <p>Effective Date: 26 Feb 2025</p>
+        <p>Last Updated: 26 Feb 2025</p>
 
-        <p className="mt-4">At Door2fy, accessible through www.door2fy.com and our mobile application, your privacy is our priority. This Privacy Policy explains how we collect, use, and protect your information when you use our website and mobile app. By accessing or using our services, you agree to the terms of this policy.</p>
+        {/* <p className="mt-4">At Door2fy, accessible through www.door2fy.com and our mobile application, your privacy is our priority. This Privacy Policy explains how we collect, use, and protect your information when you use our website and mobile app. By accessing or using our services, you agree to the terms of this policy.</p> */}
 
         {/* Information We Collect */}
         <section className="mt-6">
@@ -104,9 +104,9 @@ const PrivacyPolicy = () => {
           <h2 className="text-2xl font-semibold text-gray-700 mb-4">Your Rights</h2>
           <p>You have the right to:</p>
           <ul className="list-disc list-inside space-y-2 ml-4">
-            <li>Modify or delete your personal data.</li>
-            <li>Opt out of promotional emails.</li>
-            <li>Request a copy of your stored data.</li>
+            <li>Access, modify, or delete your personal data.</li>
+            <li>Opt-out of promotional communications via the "unsubscribe" link or app settings.</li>
+            <li>Request a copy of the data we hold about you.</li>
           </ul>
           <p className="mt-4">
             For assistance, contact{" "}

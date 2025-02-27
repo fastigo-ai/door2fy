@@ -159,7 +159,7 @@ const LaptopSupport = () => {
       : [
           {
             name: "Not Sure About the Problem.",
-            duration: "",
+            duration: "N/A",
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
@@ -250,7 +250,7 @@ const LaptopSupport = () => {
                 }`}
                 onClick={() => handleServiceTypeChange("BookingSupport")}
               >
-                Booking Support
+                Windows Support
               </button>
               <button
                 className={`px-4 py-2 rounded-md ${
@@ -277,6 +277,9 @@ const LaptopSupport = () => {
                         <h2 className="text-md font-bold mb-2">
                           {service.name}
                         </h2>
+                        <p className="text-gray-600 mb-3 text-sm font-semibold px-4">
+                          Duration: {service.duration}
+                        </p>
                         <p
                           className="text-gray-600 mb-3 text-sm"
                           style={{ whiteSpace: "pre-line" }}
@@ -350,6 +353,9 @@ const LaptopSupport = () => {
                             {isServiceAdded(service.name) ? "Remove" : "Add"}
                           </button>
                         </div>
+                        <p className="text-gray-600 mb-3 text-sm font-semibold px-4">
+                          Duration: {service.duration}
+                        </p>
                         <p
                           className="text-gray-600 my-3 text-sm px-4 text-left"
                           style={{ whiteSpace: "pre-line" }}

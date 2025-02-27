@@ -85,7 +85,7 @@ const UpgradeSupport = () => {
           name: "Hardisk Installation",
           duration: "60 mins.",
           description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
+            "Boost performance with faster SSD drives for quicker boot-up and file access.",
           price: 599,
           image: "/assets/images/services/componentsupport.jpg",
         },
@@ -93,7 +93,7 @@ const UpgradeSupport = () => {
           name: "SMPS Installation",
           duration: "45 mins.",
           description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
+            "Wiring & Connections: Proper wiring to ensure the stable operation of all components.",
           price: 999,
           image: "/assets/images/services/componentsupport.jpg",
         },
@@ -101,7 +101,7 @@ const UpgradeSupport = () => {
           name: "Mother Board Installation",
           duration: "90 mins.",
           description:
-            "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
+            "We’ll help you choose the right motherboard for your system’s specifications and install it.",
           price: 599,
           image: "/assets/images/services/componentsupport.jpg",
         },
@@ -185,7 +185,7 @@ const UpgradeSupport = () => {
       </div>
 
       <h1 className="text-3xl text-cyan-700 font-sora font-bold py-4 md:py-8 md:bg-cyan-500 md:text-white">
-        Macbook Support
+        Component Support
       </h1>
       <div className="md:bg-cyan-500 md:h-[200px] md:relative z-0"></div>
       {/* Item List */}
@@ -201,7 +201,7 @@ const UpgradeSupport = () => {
                 }`}
                 onClick={() => handleServiceTypeChange("BookingSupport")}
               >
-                Booking Support
+               Component Support
               </button>
               <button
                 className={`px-4 py-2 rounded-md ${
@@ -228,6 +228,9 @@ const UpgradeSupport = () => {
                         <h2 className="text-md font-bold mb-2">
                           {service.name}
                         </h2>
+                        <p className="text-gray-600 mb-3 text-sm font-semibold px-4">
+                          Duration: {service.duration}
+                        </p>
                         <p className="text-gray-600 mb-3 text-sm">
                           {service.description}
                         </p>
@@ -298,6 +301,9 @@ const UpgradeSupport = () => {
                             {isServiceAdded(service.name) ? "Remove" : "Add"}
                           </button>
                         </div>
+                        <p className="text-gray-600 mb-3 text-sm font-semibold px-4">
+                          Duration: {service.duration}
+                        </p>
                         <p className="text-gray-600 my-3 text-sm px-4 text-left">
                           {service.description}
                         </p>

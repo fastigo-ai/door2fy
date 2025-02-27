@@ -170,7 +170,7 @@ const MacbookSupport = () => {
           duration: "5-10 mins.",
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
-          price: 99,
+          price: 199,
           image: "/assets/images/services/macbooksupport.jpg",
         },
         {
@@ -178,11 +178,11 @@ const MacbookSupport = () => {
           duration: "5-10 mins.",
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
-          price: 99,
+          price: 199,
           image: "/assets/images/services/macbooksupport.jpg",
         },
         {
-          name: "Windows Starting Slowly.",
+          name: "Macbook Starting Slowly.",
           duration: "5-10 mins.",
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
@@ -194,15 +194,15 @@ const MacbookSupport = () => {
           duration: "5-10 mins.",
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
-          price: 99,
+          price: 199,
           image: "/assets/images/services/macbooksupport.jpg",
         },
         {
-          name: "Windows Updates Not Installing.",
+          name: "MacOS Updates Not Installing.",
           duration: "5-10 mins.",
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
-          price: 119,
+          price: 199,
           image: "/assets/images/services/macbooksupport.jpg",
         },
         {
@@ -210,7 +210,7 @@ const MacbookSupport = () => {
           duration: "5-10 mins.",
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
-          price: 99,
+          price: 119,
           image: "/assets/images/services/macbooksupport.jpg",
         },
           // Add other QuickSupport services
@@ -250,7 +250,7 @@ const MacbookSupport = () => {
                 }`}
                 onClick={() => handleServiceTypeChange("BookingSupport")}
               >
-                Booking Support
+                Macbook Support
               </button>
               <button
                 className={`px-4 py-2 rounded-md ${

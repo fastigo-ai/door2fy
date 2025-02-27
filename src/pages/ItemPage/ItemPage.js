@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useParams, useNavigate, Link } from "react-router-dom";
 import { TbArrowBackUp } from "react-icons/tb";
+import { FaCheck } from "react-icons/fa";
 import { useCart } from "../../contexts/CartContext";
 import Navbar from "../../components/Navigation/Navbar";
 import Footer from "../../components/Footer/Footer";
@@ -143,14 +144,100 @@ const ItemPage = () => {
             Description
           </p>
           <p className="text-gray-600 text-left text-sm px-6 pb-4 bg-gray-100">
-            {serviceData.description} Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown
-            printer took a galley of type and scrambled it to make a type
-            specimen book.
+            {serviceData.description}
           </p>
         </div>
       </div>
+
+       <div className="flex justify-center my-4">
+                            <div className=" p-4 mt-6 font-sora md:mt-0 md:w-1/2 ">
+                              <h2 className="text-2xl text-cyan-700 font-semibold my-4 mb-6">
+                                How it works
+                              </h2>
+                              <ol className="space-y-4 mx-4 mb-8">
+                                <li className="flex items-top">
+                                  <FaCheck className="text-green-500 mr-2 w-10" />
+                                  <div className="text-left font-bold">
+                                    Check-up
+                                    <p className="font-normal text-sm">
+                                      The technician inspects your laptop & provides a diagnosis
+                                      with a repair quote.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-top">
+                                  <FaCheck className="text-green-500 mr-2 w-10" />
+                                  <div className="text-left font-bold">
+                                    Sourcing spare parts (if required)
+                                    <p className="font-normal text-sm">
+                                      If needed, the technician will procure spare parts from
+                                      the local market.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-top">
+                                  <FaCheck className="text-green-500 mr-2 w-10" />
+                                  <div className="text-left font-bold">
+                                    Repair
+                                    <p className="font-normal text-sm">
+                                      The technician hands over the hard disk for data safety &
+                                      completes the repair.
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-top">
+                                  <FaCheck className="text-green-500 mr-2 w-10" />
+                                  <div className="text-left font-bold">
+                                    Post Repair
+                                    <p className="font-normal text-sm">
+                                      The technician thoroughly cleans the area & surfaces after
+                                      the repair
+                                    </p>
+                                  </div>
+                                </li>
+                                <li className="flex items-top">
+                                  <FaCheck className="text-green-500 mr-2 w-10" />
+                                  <div className="text-left font-bold">
+                                   
+                                    Payment
+                                    <p className="font-normal text-sm">
+                                      
+                                      Pay the final repair amount, minus the booking fee already
+                                      paid
+                                    </p>
+                                  </div>
+                                </li>
+                              </ol>
+                
+                              <h2 className="text-xl text-cyan-700 font-semibold my-4 mb-6">
+                                Please Note:
+                              </h2>
+                              <ul className="space-y-4 mx-4 mb-8">
+                                <li className="flex items-top  w-full">
+                                  <FaCheck className="text-green-500 mr-2 w-10" />
+                                  <div className="w-4/5 text-left">Check-up for
+                                  motherboard issue, the laptop will be taken to the repair
+                                  shop.</div> 
+                                </li>
+                                <li className="flex items-top w-full">
+                                  <FaCheck className="text-green-500 mr-2 w-10" /> 
+                                  <div className="w-4/5 text-left">The repair quote
+                                  will be provided after the check-up.</div>
+                                </li>
+                                <li className="flex items-top w-full">
+                                  <FaCheck className="text-green-500 mr-2 w-10" /> 
+                                  <div className="w-4/5 text-left">Visitation charges
+                                  will be adjusted in the final quote.</div>
+                                </li>
+                                <li className="flex items-top w-full ">
+                                  <FaCheck className="text-green-500 mr-2 w-10" /> 
+                                  <div className="w-4/5 text-left">We don't repair
+                                  commercial appliances.</div>
+                                </li>
+                                
+                              </ul>
+                            </div>
+                          </div>
 
       {similarItems.length > 0 && (
         <div className="mx-auto pt-6 mt-8 ">

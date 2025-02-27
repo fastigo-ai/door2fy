@@ -67,7 +67,7 @@ const DesktopSupport = () => {
       ? [
         {
           name: "Not sure of the issue/Other issue.",
-          duration: "",
+          duration: "N/A",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 99,
@@ -159,7 +159,7 @@ const DesktopSupport = () => {
       : [
         {
           name: "Not Sure About the Problem.",
-          duration: "",
+          duration: "N/A",
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
@@ -277,6 +277,9 @@ const DesktopSupport = () => {
                         <h2 className="text-md font-bold mb-2">
                           {service.name}
                         </h2>
+                        <p className="text-gray-600 mb-3 text-sm font-semibold px-4">
+                          Duration: {service.duration}
+                        </p>
                         <p className="text-gray-600 mb-3 text-sm">
                           {service.description}
                         </p>
@@ -347,6 +350,9 @@ const DesktopSupport = () => {
                             {isServiceAdded(service.name) ? "Remove" : "Add"}
                           </button>
                         </div>
+                        <p className="text-gray-600 mb-3 text-sm font-semibold px-4">
+                          Duration: {service.duration}
+                        </p>
                         <p className="text-gray-600 my-3 text-sm px-4 text-left">
                           {service.description}
                         </p>

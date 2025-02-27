@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import AccountModal from "./AccountModal";
+import AccountModal from "./FirebaseAccountModal";
 
 const BookingModal = ({ onClose, onVerify }) => {
   const [selectedDate, setSelectedDate] = useState("");

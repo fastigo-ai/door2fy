@@ -11,7 +11,7 @@ const SmoothScrollSlider = () => {
       image: "/assets/images/services/laptopsupport.jpg",
     },
     {
-      name: "MacBook service",
+      name: "Macbook service",
       description:
         "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
       price: 699,
@@ -25,40 +25,13 @@ const SmoothScrollSlider = () => {
       image: "/assets/images/services/desktopsupport.jpg",
     },
     {
-      name: "Gameing latop|desktop service",
+      name: "Gaming laptop | desktop service",
       description:
         "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
       price: 799,
       image: "/assets/images/services/componentsupport.jpg",
     },
-    {
-      name: "Windows service",
-      description:
-        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed.",
-      price: 599,
-      image: "/assets/images/services/laptopsupport.jpg",
-    },
-    {
-      name: "MacBook service",
-      description:
-        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
-      price: 699,
-      image: "/assets/images/services/macbooksupport.jpg",
-    },
-    {
-      name: "Desktop service",
-      description:
-        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
-      price: 599,
-      image: "/assets/images/services/desktopsupport.jpg",
-    },
-    {
-      name: "Gameing latop|desktop service",
-      description:
-        "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
-      price: 799,
-      image: "/assets/images/services/componentsupport.jpg",
-    },
+    
   ];
 
   return (
@@ -68,7 +41,7 @@ const SmoothScrollSlider = () => {
       </div>
 
       {/* Desktop Grid View */}
-      <div className="hidden md:grid grid-cols-6 gap-8 px-4 md:px-[10%] mb-20">
+      <div className="hidden md:grid grid-cols-4  gap-8 px-4 md:px-[10%] mb-20">
         {options.map((option) => (
           <Link
           to={`/itemPage/${option.name}`}

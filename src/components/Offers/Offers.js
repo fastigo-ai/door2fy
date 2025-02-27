@@ -5,12 +5,14 @@ const ImageSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const images = [
+    "/assets/images/Offers/macbook-offer(1).jpeg",
+    "/assets/images/Offers/macbook-offer(2).jpeg",
     "/assets/images/Offers/winter-offer.jpg",
     "/assets/images/Offers/student-offer.png",
     "/assets/images/Offers/quicksupport-offer.png",
     "/assets/images/Offers/festive-offer.png",
     "/assets/images/Offers/upgrade-offer.png",
-    // "/assets/images/Offers/Main-offer.jpg",
+    
     // "/assets/images/Offers/Main-offer.jpg",
   ];
 

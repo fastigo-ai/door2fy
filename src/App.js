@@ -18,7 +18,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import TermsOfUse from "./pages/TermOfUse/TermOfUse";
 import ContactUs from "./pages/ContactUs/ContactUs";
-import AntiDiscriminationPolicy from "./pages/AntiDiscrimationPolicy/AnitDiscrimationPolicy";
+import AntiDiscriminationPolicy from "./pages/AntiDiscrimationPolicy/AntiDiscrimationPolicy";
 import RefundPolicy from "./pages/RefundPolicy/RefundPolicy";
 import Blog from "./pages/Blog/Blog";
 import ComingSoonPage from "./pages/ComingSoon/ComingSoon";
