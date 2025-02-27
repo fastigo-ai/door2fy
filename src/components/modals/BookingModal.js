@@ -77,36 +77,48 @@ const BookingModal = ({ onClose, onVerify }) => {
       name: "Macbook Support",
       items: [
         {
-          itemName: "React Native code issue",
-          itemDescription: "Recognizing React Native’s Framework",
-          itemPrice: 299,
+          itemName: "Not Sure About the Problem",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "JAVA related issue",
+          itemName: "Excel Not Working",
           itemDescription:
-            "Memory management, code verbosity, and handling multi-threading effectively",
-          itemPrice: 299,
+            "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 199,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Python related issue",
+          itemName: "Laptop Hanging or Freezing",
           itemDescription:
-            "Developing websites and software, task automation, data analysis, and data visualization",
-          itemPrice: 299,
+            "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 199,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Laravel related issue",
+          itemName: "MacBook Starting Slowly",
           itemDescription:
-            "Architectural concepts, code writing style, object maps, file/directory layouts, and request life cycle",
-          itemPrice: 299,
+            "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 199,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Docker related issue",
-          itemDescription: "Container-related issue",
-          itemPrice: 299,
+          itemName: "Wi-Fi Not Connecting",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 199,
+          itemImage: "/assets/images/Login.webp",
+        },
+        {
+          itemName: "MacOS Updates Not Installing",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 199,
+          itemImage: "/assets/images/Login.webp",
+        },
+        {
+          itemName: "Software Not Opening or Crashing",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 119,
           itemImage: "/assets/images/Login.webp",
         },
       ],
@@ -115,37 +127,47 @@ const BookingModal = ({ onClose, onVerify }) => {
       name: "Windows Support",
       items: [
         {
-          itemName: "Not sure of the issue - Other issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
+          itemName: "Not Sure About the Problem",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Windows 10, 11 Licence",
+          itemName: "Excel Not Working",
           itemDescription:
-            "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
+            "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Windows Driver Related issue",
+          itemName: "Laptop Hanging or Freezing",
           itemDescription:
-            "We fix all driver-related issues in just a few minutes",
+            "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "MS Office related issue",
+          itemName: "Windows Starting Slowly",
           itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
+            "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 199,
+          itemImage: "/assets/images/Login.webp",
+        },
+        {
+          itemName: "Wi-Fi Not Connecting",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Windows Password issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
+          itemName: "Windows Updates Not Installing",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 119,
+          itemImage: "/assets/images/Login.webp",
+        },
+        {
+          itemName: "Software Not Opening or Crashing",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
@@ -155,162 +177,172 @@ const BookingModal = ({ onClose, onVerify }) => {
       name: "Desktop Support",
       items: [
         {
-          itemName: "Not sure of the issue - Other issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
+          itemName: "Not Sure About the Problem",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Windows 10, 11 Licence",
+          itemName: "Excel Not Working",
           itemDescription:
-            "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
+            "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Windows Driver Related issue",
+          itemName: "Laptop Hanging or Freezing",
           itemDescription:
-            "We fix all driver-related issues in just a few minutes",
+            "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "MS Office related issue",
+          itemName: "Windows Starting Slowly",
           itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
+            "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 199,
+          itemImage: "/assets/images/Login.webp",
+        },
+        {
+          itemName: "Wi-Fi Not Connecting",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
         {
-          itemName: "Windows Password issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
+          itemName: "Windows Updates Not Installing",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
+          itemPrice: 119,
+          itemImage: "/assets/images/Login.webp",
+        },
+        {
+          itemName: "Software Not Opening or Crashing",
+          itemDescription: "Our experts will diagnose the problem and provide the best possible solution",
           itemPrice: 99,
           itemImage: "/assets/images/Login.webp",
         },
       ],
     },
-    {
-      name: "Printer Support",
-      items: [
-        {
-          itemName: "Not sure of the issue - Other issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows 10, 11 Licence",
-          itemDescription:
-            "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows Driver Related issue",
-          itemDescription:
-            "We fix all driver-related issues in just a few minutes",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "MS Office related issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows Password issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-      ],
-    },
-    {
-      name: "Coding Support",
-      items: [
-        {
-          itemName: "Not sure of the issue - Other issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows 10, 11 Licence",
-          itemDescription:
-            "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows Driver Related issue",
-          itemDescription:
-            "We fix all driver-related issues in just a few minutes",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "MS Office related issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows Password issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-      ],
-    },
-    {
-      name: "Service Support",
-      items: [
-        {
-          itemName: "Not sure of the issue - Other issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows 10, 11 Licence",
-          itemDescription:
-            "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows Driver Related issue",
-          itemDescription:
-            "We fix all driver-related issues in just a few minutes",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "MS Office related issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-        {
-          itemName: "Windows Password issue",
-          itemDescription:
-            "We handle everything! Select this if you are not sure of the issue",
-          itemPrice: 99,
-          itemImage: "/assets/images/Login.webp",
-        },
-      ],
-    },
+    // {
+    //   name: "Printer Support",
+    //   items: [
+    //     {
+    //       itemName: "Not sure of the issue - Other issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows 10, 11 Licence",
+    //       itemDescription:
+    //         "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows Driver Related issue",
+    //       itemDescription:
+    //         "We fix all driver-related issues in just a few minutes",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "MS Office related issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows Password issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Coding Support",
+    //   items: [
+    //     {
+    //       itemName: "Not sure of the issue - Other issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows 10, 11 Licence",
+    //       itemDescription:
+    //         "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows Driver Related issue",
+    //       itemDescription:
+    //         "We fix all driver-related issues in just a few minutes",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "MS Office related issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows Password issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //   ],
+    // },
+    // {
+    //   name: "Service Support",
+    //   items: [
+    //     {
+    //       itemName: "Not sure of the issue - Other issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows 10, 11 Licence",
+    //       itemDescription:
+    //         "We provide a licence for your Windows PC or Laptop. Licence valid for 1 year",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows Driver Related issue",
+    //       itemDescription:
+    //         "We fix all driver-related issues in just a few minutes",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "MS Office related issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //     {
+    //       itemName: "Windows Password issue",
+    //       itemDescription:
+    //         "We handle everything! Select this if you are not sure of the issue",
+    //       itemPrice: 99,
+    //       itemImage: "/assets/images/Login.webp",
+    //     },
+    //   ],
+    // },
   ];
 
   const handleCategoryChange = (e) => {
