@@ -7,7 +7,7 @@ export const initOTPless = (callback) => {
       script.setAttribute("data-appid", "67UHR8QORYI44NIGG7VD");
   
       script.onload = () => {
-        console.log("OTPless script loaded");
+        
         window.otpless = callback;
       };
   

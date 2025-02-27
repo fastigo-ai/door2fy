@@ -17,9 +17,12 @@ const AccountModal = ({ onClose }) => {
   }, []);
 
   const handleOTPlessLogin = (otplessUser) => {
-    console.log("User Logged In:", otplessUser);
     localStorage.setItem("isVerified", "true");
-    localStorage.setItem("userPhoneNumber", otplessUser.mobile);
+
+    localStorage.setItem(
+      "userPhoneNumber",
+      otplessUser.identities[0].identityValue
+    );
     setIsVerified(true);
     setMessage("Phone number verified successfully!");
 
@@ -49,7 +52,10 @@ const AccountModal = ({ onClose }) => {
       >
         <div className="flex justify-between items-center border-b pb-4 mb-4">
           <h2 className="text-lg font-semibold">Sign in with OTPless</h2>
-          <button className="text-gray-500 hover:text-gray-700" onClick={onClose}>
+          <button
+            className="text-gray-500 hover:text-gray-700"
+            onClick={onClose}
+          >
             <FaTimes size={20} />
           </button>
         </div>
@@ -57,16 +63,27 @@ const AccountModal = ({ onClose }) => {
         {isVerified ? (
           <div className="text-center">
             <h2 className="text-xl font-bold text-green-600 my-8">Welcome!</h2>
-            <p className="text-gray-600">Your phone number has been successfully verified.</p>
+            <p className="text-gray-600">
+              Your phone number has been successfully verified.
+            </p>
           </div>
         ) : (
-          <div id="otpless-login-page" style={{
-            
-            boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)"}}></div> 
+          <div
+            id="otpless-login-page"
+            style={{
+              boxShadow: "0px 0px 0px rgba(0, 0, 0, 0)",
+            }}
+          ></div>
         )}
 
         {message && (
-          <p className={`mt-4 text-center text-sm ${message.includes("successfully") ? "text-green-600" : "text-red-500"}`}>
+          <p
+            className={`mt-4 text-center text-sm ${
+              message.includes("successfully")
+                ? "text-green-600"
+                : "text-red-500"
+            }`}
+          >
             {message}
           </p>
         )}
