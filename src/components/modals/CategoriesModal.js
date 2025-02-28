@@ -9,8 +9,9 @@ const CategoriesModal = ({ onClose }) => {
     { imgSrc: "/assets/images/Macbook-HD.png", text: "Macbook Support", link: "/macbook-support" },
     { imgSrc: "/assets/images/Laptop-HD.png", text: "Laptop Support", link: "/laptop-support" },
     { imgSrc: "/assets/images/Desktop-HD.png", text: "Desktop Support", link: "/desktop-support" },
-    { imgSrc: "/assets/images/Printer-HD.png", text: "Printer Support", link: "/printer-support" },
-    { imgSrc: "/assets/images/Coding.png", text: "Coding Issue", link: "/coding-support" },
+    { imgSrc: '/assets/images/component-hd.png', text: 'Component Support', link: '/upgrade-support' },
+    // { imgSrc: "/assets/images/Printer-HD.png", text: "Printer Support", link: "/printer-support" },
+    // { imgSrc: "/assets/images/Coding.png", text: "Coding Issue", link: "/coding-support" },
     { imgSrc: "/assets/images/Service-HD.png", text: "Service Issue", link: "/service-support" },
   ];
 
@@ -51,7 +52,7 @@ const CategoriesModal = ({ onClose }) => {
                 onClick={() => handleCategoryClick(item.link)}
               >
                 <div className="mx-auto w-30 h-30">
-                  <div className="relative w-20 h-20 mx-auto bg-cyan-100 backdrop-blur-md rounded-full flex items-center justify-center hover:w-16 hover:h-16 transition-all">
+                  <div className="relative w-20 h-20 mx-auto bg-cyan-100 backdrop-blur-md rounded-full flex items-center justify-center">
                     <img
                       src={item.imgSrc}
                       alt={item.text}
