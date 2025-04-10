@@ -30,6 +30,7 @@ const LaptopSupport = () => {
     const serviceWithType = {
       ...service,
       serviceType: activeServiceType,
+      category: "Laptop Support",
       quantity: 1,
     };
 
@@ -72,7 +73,7 @@ const LaptopSupport = () => {
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/DisplayIssue.jpg",
           },
           {
             name: "Keyboard issue",
@@ -80,7 +81,7 @@ const LaptopSupport = () => {
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/KeyboardIssue.png",
           },
           {
             name: "Touchpad issue",
@@ -88,15 +89,15 @@ const LaptopSupport = () => {
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/TouchpadIssue.avif",
           },
           {
-            name: "Charging/Power issue",
+            name: "Charging | Power issue",
             duration: "45 mins.",
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/ChargingPowerIssueLaptop.webp",
           },
           {
             name: "Overheating issue",
@@ -104,15 +105,15 @@ const LaptopSupport = () => {
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 499,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/OverheatingIssue.jpeg",
           },
           {
-            name: "Software/OS related issue/System Formatting",
+            name: "Software | OS related issue | System Formatting",
             duration: "45 mins.",
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/SoftwareNotOpeningOrCrashing.png",
           },
           {
             name: "Port issue",
@@ -120,23 +121,23 @@ const LaptopSupport = () => {
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 299,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/PortIssue.webp",
           },
           {
-            name: "My system is slow/Hanging issue",
+            name: "My system is slow | Hanging issue",
             duration: "50 mins.",
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/LaptopHangingOrFreezing.webp",
           },
           {
-            name: "Speaker/ Camera/ Internet issue",
+            name: "Speaker | Camera | Internet issue",
             duration: "30 mins.",
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 199,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/Wi-FiNotConnecting.avif",
           },
           {
             name: "Physical damage",
@@ -144,16 +145,9 @@ const LaptopSupport = () => {
             description:
               "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
             price: 599,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Window-Support/PhysicalDamage.png",
           },
-          {
-            name: "Laptop Overheating.",
-            duration: "40 mins.",
-            description:
-              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
-            price: 499,
-            image: "/assets/images/services/laptopsupport.jpg",
-          },
+        
           // Add other BookingSupport services
         ]
       : [
@@ -163,7 +157,7 @@ const LaptopSupport = () => {
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Windows-Quick-Support/NotSureAboutTheProblem.webp",
           },
           {
             name: "Excel Not Working.",
@@ -171,7 +165,7 @@ const LaptopSupport = () => {
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Windows-Quick-Support/ExcelNotWorking.png",
           },
           {
             name: "Laptop Hanging or Freezing.",
@@ -179,7 +173,7 @@ const LaptopSupport = () => {
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Windows-Quick-Support/LaptopHangingOrFreezing.webp",
           },
           {
             name: "Windows Starting Slowly.",
@@ -187,7 +181,7 @@ const LaptopSupport = () => {
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 199,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Windows-Quick-Support/WindowsStartingSlowly.png",
           },
           {
             name: "Wi-Fi Not Connecting.",
@@ -195,7 +189,7 @@ const LaptopSupport = () => {
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Windows-Quick-Support/Wi-FiNotConnecting.avif",
           },
           {
             name: "Windows Updates Not Installing.",
@@ -203,7 +197,7 @@ const LaptopSupport = () => {
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 119,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Windows-Quick-Support/WindowsUpdatesNotInstalling.png",
           },
           {
             name: "Software Not Opening or Crashing.",
@@ -211,7 +205,7 @@ const LaptopSupport = () => {
             description:
               "Our experts will diagnose the problem and provide the best possible solution.",
             price: 99,
-            image: "/assets/images/services/laptopsupport.jpg",
+            image: "/assets/images/Door2fyImage/Windows-Quick-Support/SoftwareNotOpeningOrCrashing.png",
           },
           // Add other QuickSupport services
         ];
@@ -224,7 +218,7 @@ const LaptopSupport = () => {
       />
 
       <div className="flex items-center justify-center mt-10 md:my-10">
-      <img src="/assets/images/categoryBanner/windowsservice.png" alt="" className="sm:h-[50vh]"/>
+      <img src="/assets/images/Door2fyImage/Service-Banner/LaptopRepair.jpg" alt="" className="sm:h-[50vh]"/>
         <button
           className="absolute left-4 flex top-4 md:hidden text-black mr-4 text-3xl"
           onClick={() => window.history.back()}

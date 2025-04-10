@@ -30,6 +30,7 @@ const MacbookSupport = () => {
       const serviceWithType = {
         ...service,
         serviceType: activeServiceType,
+        category: "Macbook Support",
         quantity: 1,
       };
       
@@ -72,7 +73,7 @@ const MacbookSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 699,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/DisplayIssue.jpg",
         },
         {
           name: "Keyboard issue",
@@ -80,7 +81,7 @@ const MacbookSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 599,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/KeyboardIssue.png",
         },
         {
           name: "Touchpad issue",
@@ -88,15 +89,15 @@ const MacbookSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 599,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/TouchpadIssue.avif",
         },
         {
-          name: "Charging/Power issue",
+          name: "Charging | Power issue",
           duration: "45 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 499,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/ChargingPowerIssue.avif",
         },
         {
           name: "Overheating issue",
@@ -104,15 +105,15 @@ const MacbookSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 599,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/OverheatingIssue.jpeg",
         },
         {
-          name: "Software/OS related issue/System Formatting",
+          name: "Software | OS related issue | System Formatting",
           duration: "90 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 799,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/SoftwareOSRelatedIssueSystemFormatting.jpg",
         },
         {
           name: "Port issue",
@@ -120,23 +121,23 @@ const MacbookSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 399,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/PortIssue.webp",
         },
         {
-          name: "My system is slow/Hanging issue",
+          name: "My system is slow | Hanging issue",
           duration: "45 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 399,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/MacbookStartingSlowly.avif",
         },
         {
-          name: "Speaker/ Camera/ Internet issue",
+          name: "Speaker | Camera | Internet issue",
           duration: "40 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 299,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/Wi-FiNotConnecting.avif",
         },
         {
           name: "Physical damage",
@@ -144,7 +145,7 @@ const MacbookSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 699,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Support/PhysicalDamage.png",
         },
         // {
         //   name: "Laptop Overheating.",
@@ -163,7 +164,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Quick-Support/NotSureAboutTheProblem.webp",
         },
         {
           name: "Excel Not Working.",
@@ -171,7 +172,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Quick-Support/ExcelNotWorking.png",
         },
         {
           name: "Laptop Hanging or Freezing.",
@@ -179,7 +180,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Quick-Support/LaptopHangingOrFreezing.jpg",
         },
         {
           name: "Macbook Starting Slowly.",
@@ -187,7 +188,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Quick-Support/MacbookStartingSlowly.webp",
         },
         {
           name: "Wi-Fi Not Connecting.",
@@ -195,7 +196,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Quick-Support/Wi-FiNotConnecting.avif",
         },
         {
           name: "MacOS Updates Not Installing.",
@@ -203,7 +204,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Quick-Support/MacOSUpdatesNotInstalling.webp",
         },
         {
           name: "Software Not Opening or Crashing.",
@@ -211,7 +212,7 @@ const MacbookSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 119,
-          image: "/assets/images/services/macbooksupport.jpg",
+          image: "/assets/images/Door2fyImage/Macbook-Quick-Support/SoftwareNotOpeningOrCrashing.png",
         },
           // Add other QuickSupport services
         ];

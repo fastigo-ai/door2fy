@@ -30,6 +30,7 @@ const ServiceSupport = () => {
     const serviceWithType = {
       ...service,
       serviceType: activeServiceType,
+      category: "Service Support",
       quantity: 1,
     };
 
@@ -88,7 +89,7 @@ const ServiceSupport = () => {
             image: "/assets/images/services/desktopsupport.jpg",
           },
           {
-            name: "Gameing latop/desktop service",
+            name: "Gameing latop | desktop service",
             description:
               "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
             price: 799,
@@ -112,19 +113,19 @@ const ServiceSupport = () => {
             image: "/assets/images/Laptop-HD.png",
           },
           {
-            name: "I have a MacBook/Apple laptop",
+            name: "I have a MacBook | Apple laptop",
             description:
               "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
             price: 99,
             image: "/assets/images/services/macbooksupport.jpg",
           },
-          {
-            name: "I have a print",
-            description:
-              "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
-            price: 99,
-            image: "/assets/images/Printer-HD.png",
-          },
+          // {
+          //   name: "I have a print",
+          //   description:
+          //     "Visit charge of Rs 99 will be Wavied off in the final bill.. Spare Parts/ Service cost: Extra",
+          //   price: 99,
+          //   image: "/assets/images/Printer-HD.png",
+          // },
           // Add other QuickSupport services
         ];
 
@@ -136,7 +137,7 @@ const ServiceSupport = () => {
       />
 
       <div className="flex items-center justify-center mt-10 md:my-10">
-        <img src="/assets/images/categorybanner/macbookservice.png" alt="" className="sm:h-[50vh]"/>
+        <img src="/assets/images/Door2fyImage/Service-Banner/ServiceBanner440px225p.jpg" alt="" className="sm:h-[50vh]"/>
         <button
           className="absolute left-4 flex top-4 md:hidden text-black mr-4 text-3xl"
           onClick={() => window.history.back()}

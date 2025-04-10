@@ -67,7 +67,7 @@ const Footer = () => {
                 Anti-Discrimination Policy
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/ComingSoon" className="hover:text-cyan-500">
                 UC Impact
               </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
               <Link to="/ComingSoon" className="hover:text-cyan-500">
                 Careers
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 
@@ -91,11 +91,11 @@ const Footer = () => {
                 Refundable Policy
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link to="/" className="hover:text-cyan-500">
                 Categories Near You
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link to="/ComingSoon" className="hover:text-cyan-500">
                 Blog

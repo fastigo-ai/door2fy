@@ -8,14 +8,14 @@ const SmoothScrollSlider = () => {
       description:
         "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed.",
       price: 599,
-      image: "/assets/images/services/laptopsupport.jpg",
+      image: "/assets/images/Door2fyImage/Service-Option/WindowsRepair-copy.png",
     },
     {
       name: "Macbook service",
       description:
         "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
       price: 699,
-      image: "/assets/images/services/macbooksupport.jpg",
+      image: "/assets/images/Door2fyImage/Service-Option/MacbookRepair-copy.png",
     },
     {
       name: "Desktop service",
@@ -29,7 +29,7 @@ const SmoothScrollSlider = () => {
       description:
         "Memory optimisation, internal & external deep cleaning.\n Spare parts & repair cost extra if needed",
       price: 799,
-      image: "/assets/images/services/componentsupport.jpg",
+      image: "/assets/images/services/componentsupport-copy.jpg",
     },
     
   ];
@@ -55,7 +55,7 @@ const SmoothScrollSlider = () => {
             <img
               src={option.image}
               alt={option.name}
-              className="w-full h-36 object-cover rounded-lg shadow-md bg-sky-200"
+              className="w-full h-full object-cover rounded-lg shadow-md bg-sky-200"
             />
             <p className="mt-2 text-sm font-medium text-gray-700">
               {option.name}

@@ -29,6 +29,7 @@ const UpgradeSupport = () => {
       const serviceWithType = {
         ...service,
         serviceType: activeServiceType,
+        category: "Component Support",
         quantity: 1,
       };
       
@@ -114,7 +115,7 @@ const UpgradeSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/componentsupport.jpg",
+          image: "/assets/images/Door2fyImage/Windows-Quick-Support/NotSureAboutTheProblem.webp",
         },
         {
           name: "Excel Not Working.",
@@ -122,7 +123,7 @@ const UpgradeSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/componentsupport.jpg",
+          image: "/assets/images/Door2fyImage/Windows-Quick-Support/ExcelNotWorking.png",
         },
         {
           name: "Laptop Hanging or Freezing.",
@@ -130,7 +131,7 @@ const UpgradeSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/componentsupport.jpg",
+          image: "/assets/images/Door2fyImage/Windows-Quick-Support/LaptopHangingOrFreezing.webp",
         },
         {
           name: "Windows Starting Slowly.",
@@ -138,7 +139,7 @@ const UpgradeSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/componentsupport.jpg",
+          image: "/assets/images/Door2fyImage/Windows-Quick-Support/WindowsStartingSlowly.png",
         },
         {
           name: "Wi-Fi Not Connecting.",
@@ -146,7 +147,7 @@ const UpgradeSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/componentsupport.jpg",
+          image: "/assets/images/Door2fyImage/Windows-Quick-Support/Wi-FiNotConnecting.avif",
         },
         {
           name: "Windows Updates Not Installing.",
@@ -154,7 +155,7 @@ const UpgradeSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 119,
-          image: "/assets/images/services/componentsupport.jpg",
+          image: "/assets/images/Door2fyImage/Windows-Quick-Support/WindowsUpdatesNotInstalling.png",
         },
         {
           name: "Software Not Opening or Crashing.",
@@ -162,7 +163,7 @@ const UpgradeSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/componentsupport.jpg",
+          image: "/assets/images/Door2fyImage/Windows-Quick-Support/SoftwareNotOpeningOrCrashing.png",
         },
           // Add other QuickSupport services
         ];

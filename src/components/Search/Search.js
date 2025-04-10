@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 import { CiSearch } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const navigate = useNavigate();
 
   const handleSearch = (e) => {
     setQuery(e.target.value);
     if (e.target.value.length > 0) {
       setResults([
-        { name: "Laptop", category: "Gadgets", link: "/upgrade" },
-        { name: "Tablet", category: "Gadgets", link: "/desktop-repair" },
-        { name: "Laptop", category: "Gadgets", link: "/windows-repair" },
+        { name: "Macbook", category: "Gadgets", link: "macbook-support" },
+        { name: "Laptop", category: "Gadgets", link: "/laptop-support" },
+        { name: "Desktop", category: "Gadgets", link: "/desktop-support" },
+        { name: "Component", category: "Gadgets", link: "/upgrade-support" },
+        { name: "Service", category: "Gadgets", link: "/service-support" },
       ]);
       setShowResults(true);
     } else {
       setShowResults(false);
     }
+  };
+
+  const handleSelect = (link) => {
+    navigate(link); // Navigate to the selected item's link
+    setShowResults(false); // Hide results after selection
+    setQuery(""); // Clear search input
   };
 
   return (
@@ -45,6 +55,7 @@ const Search = () => {
           <div
             key={index}
             className="p-3 hover:bg-gray-100 border-b last:border-b-0 flex justify-between"
+            onClick={() => handleSelect(result.link)} // Handle navigation on click
           >
             <div className="font-medium text-gray-800">{result.name}</div>
             <div className="text-sm text-gray-500">{result.category}</div>

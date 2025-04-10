@@ -44,6 +44,10 @@ const CartModal = ({ items = [], onClose, onVerify }) => {
     setNotification(`${selectedItem.name} removed from your cart.`);
     setIsModalOpen(false);
     setSelectedItem(null);
+     // Close cart modal if no items are left
+  if (cartItems.length === 1) { // Because removeFromCart runs asynchronously
+    onClose();
+  }
   };
 
   const closeModal = () => {
@@ -89,7 +93,7 @@ const CartModal = ({ items = [], onClose, onVerify }) => {
                   </div>
                   <div>
                     <h3 className="text-sm font-medium">{item.name}</h3>
-                    <p className="text-gray-500 text-xs">{item.quantity} x AC Jet Service</p>
+                    <p className="text-gray-500 text-xs">Quantity: {item.quantity} </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">

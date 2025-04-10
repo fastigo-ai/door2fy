@@ -29,6 +29,7 @@ const DesktopSupport = () => {
       const serviceWithType = {
         ...service,
         serviceType: activeServiceType,
+        
         quantity: 1,
       };
       
@@ -66,12 +67,13 @@ const DesktopSupport = () => {
     activeServiceType === "BookingSupport"
       ? [
         {
-          name: "Not sure of the issue/Other issue.",
+          name: "Not sure of the issue | Other issue.",
           duration: "N/A",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 99,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/NotSureAboutTheProblem.webp",
+          category: "Desktop",
         },
         {
           name: "Display Issue",
@@ -79,7 +81,7 @@ const DesktopSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 599,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/DisplayIssue.jpg",
         },
         {
           name: "Keyboard issue",
@@ -87,7 +89,7 @@ const DesktopSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 499,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/KeyboardIssue.png",
         },
         {
           name: "Touchpad issue",
@@ -95,15 +97,15 @@ const DesktopSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 499,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/TouchpadIssue.avif",
         },
         {
-          name: "Charging/Power issue",
+          name: "Charging | Power issue",
           duration: "45 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 499,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/ChargingPowerIssueLaptop.webp",
         },
         {
           name: "Overheating issue",
@@ -111,15 +113,15 @@ const DesktopSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 499,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/OverheatingIssue.jpeg",
         },
         {
-          name: "Software/OS related issue/System Formatting",
+          name: "Software | OS related issue | System Formatting",
           duration: "90 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 599,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/SoftwareNotOpeningOrCrashing.png",
         },
         {
           name: "Port issue",
@@ -127,23 +129,23 @@ const DesktopSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 299,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/PortIssue.webp",
         },
         {
-          name: "My system is slow/Hanging issue",
+          name: "My system is slow | Hanging issue",
           duration: "45 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 599,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/LaptopHangingOrFreezing.webp",
         },
         {
-          name: "Speaker/ Camera/ Internet issue",
+          name: "Speaker | Camera | Internet issue",
           duration: "40 mins.",
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 199,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/Wi-FiNotConnecting.avif",
         },
         {
           name: "Physical damage",
@@ -151,7 +153,7 @@ const DesktopSupport = () => {
           description:
             "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
           price: 599,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Support/PhysicalDamage.png",
         },
         
           // Add other BookingSupport services
@@ -163,7 +165,7 @@ const DesktopSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Quick-Support/NotSureAboutTheProblem.webp",
         },
         {
           name: "Excel Not Working.",
@@ -171,7 +173,7 @@ const DesktopSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Quick-Support/ExcelNotWorking.png",
         },
         {
           name: "Laptop Hanging or Freezing.",
@@ -179,7 +181,7 @@ const DesktopSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Quick-Support/LaptopHangingOrFreezing.webp",
         },
         {
           name: "Windows Starting Slowly.",
@@ -187,7 +189,7 @@ const DesktopSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 199,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Quick-Support/WindowsStartingSlowly.png",
         },
         {
           name: "Wi-Fi Not Connecting.",
@@ -195,7 +197,7 @@ const DesktopSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Quick-Support/Wi-FiNotConnecting.avif",
         },
         {
           name: "Windows Updates Not Installing.",
@@ -203,7 +205,7 @@ const DesktopSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 119,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Quick-Support/WindowsUpdatesNotInstalling.png",
         },
         {
           name: "Software Not Opening or Crashing.",
@@ -211,7 +213,7 @@ const DesktopSupport = () => {
           description:
             "Our experts will diagnose the problem and provide the best possible solution.",
           price: 99,
-          image: "/assets/images/services/desktopsupport.jpg",
+          image: "/assets/images/Door2fyImage/Desktop-Quick-Support/SoftwareNotOpeningOrCrashing.png",
         },
           // Add other QuickSupport services
         ];
