@@ -8,6 +8,7 @@ import Footer from "../../components/Footer/Footer";
 import Cart from "../../components/modals/CartModal";
 import Notification from "../../components/Notification/Notification";
 import Confirmation from "../../components/modals/Confirmation/ConfirmationModal";
+import Loader from "../../components/modals/Loader/loader"; 
 
 const ItemPage = () => {
   const { itemName } = useParams();
@@ -25,6 +26,22 @@ const ItemPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [itemName]);
+
+  const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        const handlePageLoad = () => {
+          setLoading(false);
+        };
+      
+        if (document.readyState === "complete") {
+          handlePageLoad(); // Page is already loaded
+        } else {
+          window.addEventListener("load", handlePageLoad);
+        }
+      
+        return () => window.removeEventListener("load", handlePageLoad);
+      }, []);
 
   
   useEffect(() => {
@@ -95,6 +112,9 @@ const ItemPage = () => {
 
   return (
     <div className="font-sora bg-gray-50 min-h-screen flex flex-col">
+      <Loader loading={loading} />
+      {!loading && (
+        <>
       <Navbar
         toggleCart={() => setIsCartOpen(!isCartOpen)}
         cartItemCount={cartItems.length}
@@ -372,6 +392,8 @@ const ItemPage = () => {
           onConfirm={confirmReplaceItem}
           onCancel={cancelReplaceItem}
         />
+      )}
+      </>
       )}
     </div>
   );

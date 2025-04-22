@@ -8,6 +8,7 @@ import { useCart } from "../../../contexts/CartContext";
 import Notification from "../../../components/Notification/Notification";
 import Confirmation from "../../../components/modals/Confirmation/ConfirmationModal";
 import Navbar from "../../../components/Navigation/Navbar";
+import Loader from "../../../components/modals/Loader/loader"; 
 
 const MacbookSupport = () => {
   const { cartItems, addToCart, removeFromCart, isServiceAdded } = useCart();
@@ -20,6 +21,23 @@ const MacbookSupport = () => {
     useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
+
+    const [loading, setLoading] = useState(true);
+      
+        useEffect(() => {
+          const handlePageLoad = () => {
+            setLoading(false);
+          };
+        
+          if (document.readyState === "complete") {
+            handlePageLoad(); // Page is already loaded
+          } else {
+            window.addEventListener("load", handlePageLoad);
+          }
+        
+          return () => window.removeEventListener("load", handlePageLoad);
+        }, []);
+    
 
     
     const handleServiceTypeChange = (type) => {
@@ -219,6 +237,9 @@ const MacbookSupport = () => {
 
   return (
     <div className="font-sans">
+      <Loader loading={loading} />
+      {!loading && (
+        <>
       <Navbar
         toggleCart={() => setIsCartOpen(!isCartOpen)}
         cartItemCount={cartItems.length}
@@ -538,6 +559,8 @@ const MacbookSupport = () => {
       )}
 
       <Footer />
+      </>
+      )}
     </div>
   );
 };

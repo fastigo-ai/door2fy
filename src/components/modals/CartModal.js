@@ -23,12 +23,17 @@ const CartModal = ({ items = [], onClose, onVerify }) => {
 
   const navigate = useNavigate();
   const handleCheckout = () => {
+
     const isVerified = localStorage.getItem("isVerified");
-     if(isVerified) {
-    navigate("/checkout");
-     }
-     else{
-      onVerify();
+     if(isVerified){
+      if((cartItems.length>0)){
+        navigate("/checkout");
+      }else{
+        setNotification("Your cart is empty. Please add items to your cart before proceeding to checkout.");
+      }
+        
+     } else {
+        onVerify();
      }
   };
 
@@ -117,7 +122,12 @@ const CartModal = ({ items = [], onClose, onVerify }) => {
             <p className="text-lg font-semibold">₹{calculateTotal()}</p>
           </div>
           <button
-            className="w-1/3 bg-cyan-600 text-white font-bold py-3 rounded-full hover:bg-cyan-800"
+            className={`${
+                cartItems.length === 0
+                  ? "bg-gray-400 "
+                  : "bg-cyan-600"
+              }
+            w-1/3 bg-cyan-600 text-white font-bold py-3 rounded-full hover:bg-cyan-800 `}
             onClick={handleCheckout}
           >
             CHECKOUT

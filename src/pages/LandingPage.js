@@ -6,6 +6,7 @@ import OurService from "../components/Categories/OurService";
 import Offers from "../components/Offers/Offers";
 import ServiceOptions from "../components/ServiceOptions/ServiceOptions";
 import Footer from "../components/Footer/Footer";
+import Loader from "../components/modals/Loader/loader"; 
 
 function LandingPage() {
   const [cartItems, setCartItems] = useState(
@@ -15,9 +16,27 @@ function LandingPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  const [loading, setLoading] = useState(true);
+  
+    useEffect(() => {
+      const handlePageLoad = () => {
+        setLoading(false);
+      };
+    
+      if (document.readyState === "complete") {
+        handlePageLoad(); // Page is already loaded
+      } else {
+        window.addEventListener("load", handlePageLoad);
+      }
+    
+      return () => window.removeEventListener("load", handlePageLoad);
+    }, []);
 
   return (
     <div>
+      <Loader loading={loading} />
+      {!loading && (
+        <>
       {/* <div className="block md:hidden">Mobile View</div> */}
       {/* Navigation Bar */}
       <div className="landing-page-navbar">
@@ -46,7 +65,8 @@ function LandingPage() {
             <img
               src="/assets/images/DesktopView/Landing-Page-Banner-Desktop.png"
               alt="Landing Page Banner"
-              className="w-full h-screen  rounded-b-[10rem] xl:mt-0 object-cover"
+              className="w-full
+                 rounded-b-[10rem] xl:mt-0 object-cover"
               
             />
            
@@ -70,8 +90,10 @@ function LandingPage() {
       <div className="landing-page-service-banner m-4 flex justify-center ">
         <img src="/assets/images/mobilebanner.png" alt="" srcset="" className="md:w-2/3" />
       </div>
-
+      
       <Footer />
+      </>
+      )}
     </div>
   );
 }

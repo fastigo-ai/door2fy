@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { TbArrowBackUp } from "react-icons/tb";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { useLocationContext } from "../../contexts/LocationContext";
+import Loader from "../../components/modals/Loader/loader"; 
 
 const CheckoutPage = () => {
   const locationBook = useLocation();
@@ -34,6 +35,22 @@ const CheckoutPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        const handlePageLoad = () => {
+          setLoading(false);
+        };
+      
+        if (document.readyState === "complete") {
+          handlePageLoad(); // Page is already loaded
+        } else {
+          window.addEventListener("load", handlePageLoad);
+        }
+      
+        return () => window.removeEventListener("load", handlePageLoad);
+      }, []);
 
   
   // Initialize data based on navigation source
@@ -70,6 +87,16 @@ const CheckoutPage = () => {
       (total, item) => total + item.price * item.quantity,
       0
     );
+  };
+
+  const loadRazorpayScript = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
   };
 
   const handleAddNewCustomer = () => {
@@ -111,34 +138,71 @@ const CheckoutPage = () => {
       return;
     }
 
+    if (cartItems.length === 0) {
+      alert("Your cart is empty. Please add items to your cart before proceeding to checkout.");
+      return;
+    }
     if (!slotDetails.date || !slotDetails.timeSlot) {
       alert("Please select a slot.");
       return;
     }
 
-    const selectedCustomerDetails = savedCustomerDetails[selectedCustomer];
+    const res = await loadRazorpayScript();
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
 
-    const payload = {
-      cartItems,
-      customerDetails: selectedCustomerDetails, // Ensure the selected customer is used
-      slotDetails,
-      totalAmount: calculateTotal(),
+    const amount = calculateTotal() * 100; // in paisa
+    const options = {
+      key: "rzp_live_ZGueWawRAvrjTV", // ✅ Replace with your Razorpay Key
+      amount: amount,
+      currency: "INR",
+      name: "Door2Fy",
+      description: "Service Payment",
+      handler: async function (response) {
+        const selectedCustomerDetails = savedCustomerDetails[selectedCustomer];
+        const payload = {
+          cartItems,
+          customerDetails: selectedCustomerDetails,
+          slotDetails,
+          totalAmount: calculateTotal(),
+          razorpay_payment_id: response.razorpay_payment_id,
+        };
+
+        try {
+          const apiRes = await fetch("https://formspree.io/f/movvpewj", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (apiRes.ok) {
+            alert("Payment Successful & Order Submitted!");
+            navigate("/");
+          } else {
+            alert("Order submission failed. Try again.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Something went wrong. Try again.");
+        }
+      },
+      prefill: {
+        name: customerDetails.name,
+        email: customerDetails.email,
+        contact: customerDetails.phone,
+      },
+      notes: {
+        address: customerDetails.address,
+      },
+      theme: {
+        color: "#06b6d4",
+      },
     };
 
-    try {
-      const response = await fetch("https://formspree.io/f/movvpewj", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        alert("Order submitted successfully!");
-        navigate("/");
-      }
-    } catch (error) {
-      alert("Failed to submit order. Please try again.");
-    }
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
   };
 
   const timeSlots = [
@@ -168,6 +232,9 @@ const CheckoutPage = () => {
 
   return (
     <div className="max-h-screen bg-gray-50 font-sora">
+      <Loader loading={loading} />
+      {!loading && (
+        <>
       <button
         className="absolute left-4 flex top-4 text-black mr-4 text-3xl"
         onClick={() => navigate(-1)}
@@ -392,12 +459,14 @@ const CheckoutPage = () => {
               disabled={
                 selectedCustomer === null ||
                 !slotDetails.date ||
-                !slotDetails.timeSlot
+                !slotDetails.timeSlot||
+                cartItems.length === 0
               }
               className={`w-full md:w-auto px-8 py-3 ${
                 selectedCustomer === null ||
                 !slotDetails.date ||
-                !slotDetails.timeSlot
+                !slotDetails.timeSlot||
+                cartItems.length === 0
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-cyan-600"
               } text-white rounded-full hover:bg-cyan-700 transition-colors`}
@@ -407,6 +476,8 @@ const CheckoutPage = () => {
           </div>
         </div>
       </div>
+      </>
+      )}
     </div>
   );
 };

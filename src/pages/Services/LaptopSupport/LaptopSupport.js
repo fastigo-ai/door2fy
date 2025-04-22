@@ -8,6 +8,7 @@ import Notification from "../../../components/Notification/Notification";
 import Confirmation from "../../../components/modals/Confirmation/ConfirmationModal";
 import { useCart } from "../../../contexts/CartContext";
 import Navbar from "../../../components/Navigation/Navbar";
+import Loader from "../../../components/modals/Loader/loader"; 
 
 const LaptopSupport = () => {
   const { cartItems, addToCart, removeFromCart, isServiceAdded } = useCart();
@@ -20,6 +21,23 @@ const LaptopSupport = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        const handlePageLoad = () => {
+          setLoading(false);
+        };
+      
+        if (document.readyState === "complete") {
+          handlePageLoad(); // Page is already loaded
+        } else {
+          window.addEventListener("load", handlePageLoad);
+        }
+      
+        return () => window.removeEventListener("load", handlePageLoad);
+      }, []);
+  
 
 
   const handleServiceTypeChange = (type) => {
@@ -147,6 +165,14 @@ const LaptopSupport = () => {
             price: 599,
             image: "/assets/images/Door2fyImage/Window-Support/PhysicalDamage.png",
           },
+          {
+            name: "Checking Payment",
+            duration: "45 mins.",
+            description:
+              "Complete diagnosis to identify the issue before repair.\n Final repair cost will be shared after the diagnosis",
+            price: 1,
+            image: "/assets/images/Door2fyImage/Window-Support/DisplayIssue.jpg",
+          },
         
           // Add other BookingSupport services
         ]
@@ -212,6 +238,9 @@ const LaptopSupport = () => {
 
   return (
     <div className="font-sans">
+      <Loader loading={loading} />
+      {!loading && (
+        <>
       <Navbar
         toggleCart={() => setIsCartOpen(!isCartOpen)}
         cartItemCount={cartItems.length}
@@ -539,6 +568,8 @@ const LaptopSupport = () => {
       )}
 
       <Footer />
+      </>
+      )}
     </div>
   );
 };

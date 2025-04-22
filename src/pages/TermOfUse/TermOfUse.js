@@ -3,6 +3,7 @@ import Navbar from "../../components/Navigation/Navbar";
 import Footer from "../../components/Footer/Footer";
 import { useCart } from "../../contexts/CartContext";
 import { TbArrowBackUp } from "react-icons/tb";
+import Loader from "../../components/modals/Loader/loader"; 
 
 const TermsOfUse = () => {
   const { cartItems } = useCart();
@@ -16,8 +17,28 @@ const TermsOfUse = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const [loading, setLoading] = useState(true);
+    
+      useEffect(() => {
+        const handlePageLoad = () => {
+          setLoading(false);
+        };
+      
+        if (document.readyState === "complete") {
+          handlePageLoad(); // Page is already loaded
+        } else {
+          window.addEventListener("load", handlePageLoad);
+        }
+      
+        return () => window.removeEventListener("load", handlePageLoad);
+      }, []);
+  
+
   return (
     <>
+    <Loader loading={loading} />
+      {!loading && (
+        <>
       <Navbar toggleCart={toggleCart} cartItemCount={cartItems.length} />
 
       <div className="flex items-center justify-center my-10">
@@ -330,6 +351,8 @@ const TermsOfUse = () => {
       </div>
 
       <Footer />
+      </>
+      )}
     </>
   );
 };
