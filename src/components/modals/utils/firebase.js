@@ -8,13 +8,13 @@ const firebaseConfig = {
   storageBucket: "door2fy-6f73c.firebasestorage.app",
   messagingSenderId: "394341024747",
   appId: "1:394341024747:web:fe37eb241b6bff6ead8fae",
-  measurementId: "G-3JY6RHYDBW",
+  measurementId: "G-3JY6RHYDBW"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
-export { app, auth };
+

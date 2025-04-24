@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import {
   RecaptchaVerifier,
   signInWithPhoneNumber,
@@ -8,19 +10,36 @@ import {
 } from "firebase/auth";
 import { auth } from "./utils/firebase"; // Adjust the import path as necessary
 
-const AccountModal = ({ onClose }) => {
+const AccountModal = ({ isOpen,onClose }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [verificationId, setVerificationId] = useState(null);
   const [message, setMessage] = useState("");
   const [isVerified, setIsVerified] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState("");
+
+  //  useEffect(() => {
+  //     if (isOpen) {
+  //       setUpRecaptcha();
+  //     }
+  //   }, [isOpen]);
+  // const auth = getAuth(); // Initialize Firebase Auth
   // console.log(isVerified);
   // Load verification state from localStorage when component mounts
   useEffect(() => {
     const verifiedStatus = localStorage.getItem("isVerified") === "true";
     setIsVerified(verifiedStatus);
   }, []);
+
+  // function setUpRecaptcha(phoneNumber) {
+  //   window.recaptchaVerifier = new RecaptchaVerifier(auth,
+  //     "recaptcha-container",
+  //     {},
+  //   );
+  //   window.recaptchaVerifier.render();
+     
+  // }
 
   const setUpRecaptcha = () => {
     try {
@@ -56,7 +75,46 @@ const AccountModal = ({ onClose }) => {
     return phoneRegex.test(phone);
   };
 
+  // const sendOTP = async (e) => {
+  //   e.preventDefault();
+  //   console.log(phoneNumber);
+  //   if (!validatePhoneNumber(phoneNumber)) {
+  //         setMessage(
+  //           "Please enter a valid phone number in international format (e.g., +1234567890)"
+  //         );
+  //         return;
+  //       }
+  //       setLoading(true);
+  //       setMessage("");
+  //   try {
+  //     const recaptchaVerifier = window.recaptchaVerifier;
+  //     const response = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);;
+  //     setResult(response);
+  //     setVerificationId(response.verificationId);
+  //     setMessage("OTP sent successfully!");
+  //   } catch (error) {
+  //     console.error("Send OTP error:", error);
+  //     setMessage(error.message || "Error sending OTP. Please try again.");
+  //   }
+  // };
+
+  // const verifyOTP = async (e) => {
+  //   e.preventDefault();
+
+  //   if (otp === "" || otp === null) return;
+  //       setLoading(true);
+  //   setMessage("");
+  //   try {
+  //     await result.confirm(otp);
+  //     setIsVerified(true);
+  //     localStorage.setItem("isVerified", "true"); // Persist verification status
+  //   } catch (error) {
+  //     console.error("Send OTP error:", error);
+  //    setMessage(error.message || "Error sending OTP. Please try again.");
+  //   }
+  // };
   const sendOTP = async () => {
+    console.log(phoneNumber);
     if (!validatePhoneNumber(phoneNumber)) {
       setMessage(
         "Please enter a valid phone number in international format (e.g., +1234567890)"
@@ -71,13 +129,14 @@ const AccountModal = ({ onClose }) => {
       setUpRecaptcha(); // Always reset reCAPTCHA before use
       const appVerifier = window.recaptchaVerifier;
 
-      await appVerifier.verify();
+      // await appVerifier.verify();
   
       if (!appVerifier) {
         throw new Error(
           "reCAPTCHA not initialized. Please refresh and try again."
         );
       }
+      console.log("Using reCAPTCHA verifier:", window.recaptchaVerifier);
   
       const confirmationResult = await signInWithPhoneNumber(
         auth,
@@ -173,26 +232,28 @@ const AccountModal = ({ onClose }) => {
 
         </div>
 
-        <div id="recaptcha-container"></div>
+        
         
         <div className="flex items-center justify-center mt-12">
         {!isVerified ? (
           <>
             {!verificationId ? (
-              <div className="w-full md:left-0">
+              <div className=" w-full md:left-0">
                 <div className="mb-4">
                   <label className="block text-gray-700 text-sm mb-2">
                     Phone Number 
                   </label>
-                  <input
-                    type="tel"
+                  <PhoneInput
+            defaultCountry="IN"
                     placeholder="Enter your phone number"
                     value={phoneNumber}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    onChange={(value) => setPhoneNumber(value)}
                     className="w-full p-2 border rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                     disabled={loading}
                   />
+                  <div id="recaptcha-container"></div>
                 </div>
+                
                 <button
                   className={`w-full py-2 rounded-lg ${
                     loading

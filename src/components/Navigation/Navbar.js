@@ -139,7 +139,7 @@ export default function BottomNavbar({toggleCart}) {
         openModal("account");}}
       />}
       {activeModal === "categories" && <CategoriesModal onClose={closeModal} />}
-      {activeModal === "account" && <AccountModal onClose={closeModal} />}
+      {activeModal === "account" && <AccountModal isOpen={activeModal} onClose={closeModal} />}
       {activeModal === "cart" && <CartModal onClose={closeModal} 
       onVerify={()=>{
         closeModal();
