@@ -10,6 +10,12 @@ const CheckoutPage = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("details");
   const [cartItems, setCartItems] = useState([]);
+  const [customerErrors, setCustomerErrors] = useState({});
+  const [errors, setErrors] = useState({
+    customer: "",
+    slot: "",
+    cart: ""
+  });
   const [slotDetails, setSlotDetails] = useState({
     date: "",
     timeSlot: "",
@@ -100,6 +106,21 @@ const CheckoutPage = () => {
   };
 
   const handleAddNewCustomer = () => {
+    const errors = {};
+
+  // Validate required fields (landmark is optional)
+  if (!customerDetails.name) errors.name = "Name is required.";
+  if (!customerDetails.email) errors.email = "Email is required.";
+  if (!customerDetails.phone) errors.phone = "Phone is required.";
+  if (!customerDetails.pincode) errors.pincode = "Pincode is required.";
+  if (!customerDetails.city) errors.city = "City is required.";
+  if (!customerDetails.address) errors.address = "Address is required.";
+
+  // If there are errors, show them and stop
+  if (Object.keys(errors).length > 0) {
+    setCustomerErrors(errors);
+    return;
+  }
     setSavedCustomerDetails((prevDetails) => {
       const newDetails = [...prevDetails, customerDetails];
       sessionStorage.setItem("customerDetails", JSON.stringify(newDetails));
@@ -133,20 +154,29 @@ const CheckoutPage = () => {
 
   const handleSubmit = async () => {
     // Ensure customerDetails is populated
-    if (selectedCustomer === null) {
-      alert("Please select a customer.");
-      return;
-    }
+    let hasError = false;
+  const newErrors = { customer: "", slot: "", cart: "" };
 
-    if (cartItems.length === 0) {
-      alert("Your cart is empty. Please add items to your cart before proceeding to checkout.");
-      return;
-    }
-    if (!slotDetails.date || !slotDetails.timeSlot) {
-      alert("Please select a slot.");
-      return;
-    }
+  if (selectedCustomer === null) {
+    newErrors.customer = "Please select a customer.";
+    hasError = true;
+  }
 
+  if (cartItems.length === 0) {
+    newErrors.cart = "Your cart is empty. Please add items.";
+    hasError = true;
+  }
+
+  if (!slotDetails.date || !slotDetails.timeSlot) {
+    newErrors.slot = "Please select a slot.";
+    hasError = true;
+  }
+
+  setErrors(newErrors);
+
+  if (hasError) {
+    return; // stop submission
+  }
     const res = await loadRazorpayScript();
     if (!res) {
       alert("Razorpay SDK failed to load. Are you online?");
@@ -273,8 +303,11 @@ const CheckoutPage = () => {
               <span>₹{calculateTotal()}</span>
             </div>
           </div>
+          {errors.cart && (
+  <p className="text-red-500 text-sm mt-1">{errors.cart}</p>
+)}
         </div>
-
+        
         {/* Customer Details Form */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6 text-left">
           <h2 className="text-xl font-bold mb-4">Customer Details</h2>
@@ -332,14 +365,23 @@ const CheckoutPage = () => {
                   <input
                     type={key === "email" ? "email" : "text"}
                     value={value}
-                    onChange={(e) =>
+                    onChange={(e) =>{
                       setCustomerDetails((prev) => ({
                         ...prev,
                         [key]: e.target.value,
-                      }))
-                    }
-                    className="w-full p-2 border rounded-md focus:ring-2 focus:ring-cyan-500"
+                      }));
+                      setCustomerErrors((prevErrors) => ({
+                        ...prevErrors,
+                        [key]: "", // Clear error on change
+                      }));
+                    }}
+                    className={`w-full p-2 border rounded-md focus:ring-2 ${
+                      customerErrors[key] ? "border-red-500" : "border-gray-300 focus:ring-cyan-500"
+                    }`}
                   />
+                  {customerErrors[key] && (
+          <p className="text-red-500 text-xs mt-1">{customerErrors[key]}</p>
+        )}
                 </div>
               ))}
             </div>
@@ -353,7 +395,11 @@ const CheckoutPage = () => {
               Save Details
             </button>
           )}
+          {errors.customer && (
+  <p className="text-red-500 text-sm mt-1">{errors.customer}</p>
+)}
         </div>
+        
 
         {/* Slot Details */}
         {!locationBook.state?.bookingDetails && (
@@ -437,6 +483,9 @@ const CheckoutPage = () => {
                 </div>
               </div>
             </div>
+            {errors.slot && (
+  <p className="text-red-500 text-sm mt-1">{errors.slot}</p>
+)}
           </div>
         )}
 
@@ -456,20 +505,13 @@ const CheckoutPage = () => {
             </div>
             <button
               onClick={handleSubmit}
-              disabled={
-                selectedCustomer === null ||
-                !slotDetails.date ||
-                !slotDetails.timeSlot||
-                cartItems.length === 0
-              }
-              className={`w-full md:w-auto px-8 py-3 ${
-                selectedCustomer === null ||
-                !slotDetails.date ||
-                !slotDetails.timeSlot||
-                cartItems.length === 0
-                  ? "bg-gray-400 cursor-not-allowed"
-                  : "bg-cyan-600"
-              } text-white rounded-full hover:bg-cyan-700 transition-colors`}
+              // disabled={
+              //   selectedCustomer === null ||
+              //   !slotDetails.date ||
+              //   !slotDetails.timeSlot||
+              //   cartItems.length === 0
+              // }
+              className={`w-full md:w-auto px-8 py-3  text-white rounded-full bg-cyan-700 transition-colors`}
             >
               Complete Order
             </button>
