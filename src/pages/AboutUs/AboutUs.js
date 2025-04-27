@@ -40,7 +40,7 @@ const AboutUs = () => {
         <>
       <Navbar toggleCart={toggleCart} cartItemCount={cartItems.length} />
       <div className="flex items-center justify-center my-10">
-        <img src="/assets/images/icons1.png" alt="Door2fy Logo" />
+        
         <button
           className="absolute left-4 flex top-4 md:hidden text-black mr-4 text-3xl"
           onClick={() => window.history.back()}

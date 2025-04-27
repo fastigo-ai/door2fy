@@ -10,36 +10,27 @@ import {
 } from "firebase/auth";
 import { auth } from "./utils/firebase"; // Adjust the import path as necessary
 
-const AccountModal = ({ isOpen,onClose }) => {
+const AccountModal = ({ onClose }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
   const [verificationId, setVerificationId] = useState(null);
   const [message, setMessage] = useState("");
   const [isVerified, setIsVerified] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState("");
+  
 
   //  useEffect(() => {
   //     if (isOpen) {
   //       setUpRecaptcha();
   //     }
   //   }, [isOpen]);
-  // const auth = getAuth(); // Initialize Firebase Auth
-  // console.log(isVerified);
-  // Load verification state from localStorage when component mounts
+  
   useEffect(() => {
     const verifiedStatus = localStorage.getItem("isVerified") === "true";
     setIsVerified(verifiedStatus);
   }, []);
 
-  // function setUpRecaptcha(phoneNumber) {
-  //   window.recaptchaVerifier = new RecaptchaVerifier(auth,
-  //     "recaptcha-container",
-  //     {},
-  //   );
-  //   window.recaptchaVerifier.render();
-     
-  // }
+
 
   const setUpRecaptcha = () => {
     try {
@@ -52,14 +43,14 @@ const AccountModal = ({ isOpen,onClose }) => {
   
       // Recreate a new instance
       window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha-container", {
-        size: "invisible",
-        callback: () => {
-          console.log("reCAPTCHA verified successfully");
-        },
-        "expired-callback": () => {
-          console.warn("reCAPTCHA expired. Resetting...");
-          setUpRecaptcha(); // Reset on expiration
-        },
+        // size: "invisible",
+        // callback: () => {
+        //   console.log("reCAPTCHA verified successfully");
+        // },
+        // "expired-callback": () => {
+        //   console.warn("reCAPTCHA expired. Resetting...");
+        //   setUpRecaptcha(); // Reset on expiration
+        // },
       });
   
       window.recaptchaVerifier.render().catch((error) => {
@@ -75,44 +66,8 @@ const AccountModal = ({ isOpen,onClose }) => {
     return phoneRegex.test(phone);
   };
 
-  // const sendOTP = async (e) => {
-  //   e.preventDefault();
-  //   console.log(phoneNumber);
-  //   if (!validatePhoneNumber(phoneNumber)) {
-  //         setMessage(
-  //           "Please enter a valid phone number in international format (e.g., +1234567890)"
-  //         );
-  //         return;
-  //       }
-  //       setLoading(true);
-  //       setMessage("");
-  //   try {
-  //     const recaptchaVerifier = window.recaptchaVerifier;
-  //     const response = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier);;
-  //     setResult(response);
-  //     setVerificationId(response.verificationId);
-  //     setMessage("OTP sent successfully!");
-  //   } catch (error) {
-  //     console.error("Send OTP error:", error);
-  //     setMessage(error.message || "Error sending OTP. Please try again.");
-  //   }
-  // };
 
-  // const verifyOTP = async (e) => {
-  //   e.preventDefault();
 
-  //   if (otp === "" || otp === null) return;
-  //       setLoading(true);
-  //   setMessage("");
-  //   try {
-  //     await result.confirm(otp);
-  //     setIsVerified(true);
-  //     localStorage.setItem("isVerified", "true"); // Persist verification status
-  //   } catch (error) {
-  //     console.error("Send OTP error:", error);
-  //    setMessage(error.message || "Error sending OTP. Please try again.");
-  //   }
-  // };
   const sendOTP = async () => {
     console.log(phoneNumber);
     if (!validatePhoneNumber(phoneNumber)) {
@@ -126,7 +81,10 @@ const AccountModal = ({ isOpen,onClose }) => {
     setMessage("");
   
     try {
-      setUpRecaptcha(); // Always reset reCAPTCHA before use
+      // Set up recaptcha only here
+    if (!window.recaptchaVerifier) {
+      setUpRecaptcha();
+    }
       const appVerifier = window.recaptchaVerifier;
 
       // await appVerifier.verify();
@@ -200,7 +158,7 @@ const AccountModal = ({ isOpen,onClose }) => {
 
       <div
         className="fixed bottom-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 md:z-20 w-full md:flex md:justify-between md:h-[40vh] md:w-[80%] lg:h-[70vh] lg:w-[50%] bg-white rounded-t-lg sm:rounded-lg shadow-lg p-6 md:p-0 overflow-y-auto"
-        // style={{ maxHeight: "90vh" }} // Ensures scrollability when clipped
+        style={{ maxHeight: "90vh" }} // Ensures scrollability when clipped
         
         onClick={(e) => e.stopPropagation()} // Prevents closing on clicking inside modal
       >
@@ -209,10 +167,10 @@ const AccountModal = ({ isOpen,onClose }) => {
           <img 
           src="/assets/images/LandingPageBanner.jpg"
           alt="Landing Page Banner"
-          className="w-full  object-cover " />
+          className="w-[30vw] object-cover" />
 
         </div>
-        <div className="md:flex w-full md:w-[45vw] lg:w-[25vw] md:justify-center mb-4 p-0 md:py-6 ">
+        <div className="md:flex w-full md:w-[45vw] lg:w-[25vw] md:justify-center mb-4 p-0 md:py-6 md:px-4 ">
           <div>
           <div className="flex justify-between w-full md:w-[32vw] lg:w-[22vw] items-center border-b pb-4 mb-4">
           <h2 className="text-lg font-semibold">Sign in with your phone</h2>
@@ -275,7 +233,7 @@ const AccountModal = ({ isOpen,onClose }) => {
                   </label>
                   <input
                     type="text"
-                    placeholder="123456"
+                    placeholder="Enter your 6 digit OTP"
                     value={otp}
                     onChange={(e) =>
                       setOtp(e.target.value.replace(/\D/g, "").slice(0, 6))

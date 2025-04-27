@@ -7,7 +7,7 @@ import AccountModal from "./AccountModal";
 import { useCart } from "../../contexts/CartContext";
 import Notification from "../Notification/Notification";
 
-const CartModal = ({ items = [], onClose, onVerify }) => {
+const CartModal = ({ onClose, onVerify }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];

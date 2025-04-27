@@ -88,7 +88,7 @@ function LandingPage() {
       </div>
 
       <div className="landing-page-service-banner m-4 flex justify-center ">
-        <img src="/assets/images/mobilebanner.png" alt="" srcset="" className="md:w-2/3" />
+        <img src="/assets/images/mobilebanner.png" alt="" className="md:w-2/3" />
       </div>
       
       <Footer />
