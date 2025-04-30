@@ -22,13 +22,12 @@ import AntiDiscriminationPolicy from "./pages/AntiDiscrimationPolicy/AntiDiscrim
 import RefundPolicy from "./pages/RefundPolicy/RefundPolicy";
 import Blog from "./pages/Blog/Blog";
 import ComingSoonPage from "./pages/ComingSoon/ComingSoon";
-
 function App() {
   return (
     <div className="App">
       <CartProvider>
       <LocationProvider>
-      <Router>
+      {/* <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/laptop-support" element={<LaptopSupport/>} />
@@ -49,7 +48,25 @@ function App() {
           <Route path="/ComingSoon" element={<ComingSoonPage/>} />
 
         </Routes>
-      </Router>
+      </Router> */}
+      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 text-gray-800 px-6">
+      <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full text-center">
+        <div className="flex justify-center mb-4">
+          <div className="text-red-500 w-12 h-12" />
+        </div>
+        <h1 className="text-3xl font-bold mb-2">500 - Internal Server Error</h1>
+        <p className="mb-4 text-sm text-gray-600">
+          Oops! Something went wrong on our end. Please try again later or contact support if the issue persists.
+        </p>
+          <button
+            
+            className="mt-4 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-xl transition duration-200"
+          >
+            Try Again
+          </button>
+        
+      </div>
+    </div>
       </LocationProvider>
       </CartProvider>
     </div>
