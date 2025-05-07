@@ -201,7 +201,9 @@ const CheckoutPage = () => {
         };
 
         try {
-          const apiRes = await fetch("https://formspree.io/f/movvpewj", {
+          const formUrl = process.env.REACT_APP_FORMSPREE_CHECKOUT_API;
+          console.log(formUrl);
+          const apiRes = await fetch(formUrl, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),

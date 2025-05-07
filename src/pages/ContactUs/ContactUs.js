@@ -79,7 +79,8 @@ const ContactUs = () => {
     if (!validate()) return;
 
     try {
-      const response = await fetch("https://formspree.io/f/mkgrnwwn", {
+      const formUrl = process.env.REACT_APP_FORMSPREE_CONTACT_API;
+      const response = await fetch(formUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
